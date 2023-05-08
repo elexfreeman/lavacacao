@@ -4,6 +4,7 @@
 $--font-family-site: "Open Sans";
 
 $--title-color: #8b8b8b;
+$--link-color: #986a52;
 
 @import "./colors.scss";
 @import "./fonts.scss";
@@ -12,8 +13,11 @@ $--title-color: #8b8b8b;
 
 body {
   font-family: $--font-family-site;
-
   margin: 0;
+}
+
+a {
+  color: $--link-color;
 }
 
 .lemd-container {

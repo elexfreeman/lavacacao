@@ -46,7 +46,6 @@ export default {
     },
     sliderImgList() {
       let resp = [];
-      console.log(this.sku);
       resp = this.sku.image_list.data.map((item) => {
         return `${MEDIA_URL}${item.attributes.formats.large.url}`;
       });
@@ -55,9 +54,7 @@ export default {
     },
   },
   methods: {
-    onClick() {
-      console.log(this.sku);
-    },
+    onClick() {},
   },
 };
 </script>
@@ -70,6 +67,7 @@ export default {
     font-weight: 100;
     margin-bottom: 20px;
     color: $--title-color;
+    text-align: center;
 
     @include display-after(sm) {
       display: none;

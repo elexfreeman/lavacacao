@@ -2,6 +2,7 @@
   <div>
     <Header />
     <Containter>
+      <ProductBreadcrumbs />
       <Product />
     </Containter>
   </div>
@@ -12,7 +13,8 @@ import { API_URL } from "../../config";
 
 export default {
   name: "ProductPage",
-  async asyncData({ params, $axios, store }) {
+  async asyncData(data) {
+    const { params, $axios, store, $productUtil } = data;
     const pageCommonData = (
       await $axios.$get(`${API_URL}/page-data-common?populate=deep`)
     ).data.attributes;
@@ -26,16 +28,7 @@ export default {
       await $axios.$get(`${API_URL}/choco-candles/${params.id}?populate=deep`)
     ).data;
 
-    const getSkuList = () => {
-      let resp = [];
-      if (product?.attributes?.sku_choco_candle?.length) {
-        resp = product?.attributes?.sku_choco_candle;
-      }
-      return resp;
-    };
-
-    const skuList = getSkuList();
-
+    const skuList = $productUtil.getSkuList(product);
     if (skuList.length > 0) {
       const selectedSku = skuList[0];
       store.dispatch("product/setSelectedSkuId", selectedSku.id);

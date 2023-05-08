@@ -19,7 +19,7 @@ export default {
       };
     },
     logoImg() {
-      return `${MEDIA_URL}${this.pageCommonData.logo.data.attributes.formats.large.url}`;
+      return `${MEDIA_URL}${this.pageCommonData?.logo?.data?.attributes?.url}`;
     },
   },
   methods: {},
