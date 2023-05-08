@@ -8,6 +8,6 @@ class ProductUtil {
   }
 }
 
-export default ({ app }, inject) => {
+export default ({}, inject) => {
   inject("productUtil", new ProductUtil());
 };

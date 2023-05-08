@@ -4,6 +4,7 @@
     <MainSlider />
     <ProductList />
     <About />
+    <WhyWe />
   </div>
 </template>
 
@@ -27,7 +28,6 @@ export default {
       return `${MEDIA_URL}${item.image.data.attributes.url}`;
     });
     store.dispatch("mainData/loadMainSlider", slideList);
-
 
     const productList = (
       await $axios.$get(`${API_URL}/choco-candles?populate=deep`)
