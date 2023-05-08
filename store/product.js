@@ -1,6 +1,7 @@
 export const state = () => ({
   productList: [],
   product: {},
+  selectedSkuId: -1,
 });
 
 export const mutations = {
@@ -10,11 +11,15 @@ export const mutations = {
   setProduct(state, data) {
     state.product = data;
   },
+  setSelectedSkuId(state, data) {
+    state.selectedSkuId = data;
+  },
 };
 
 export const getters = {
   product: (state) => state.product,
   productList: (state) => state.productList,
+  selectedSkuId: (state) => state.selectedSkuId,
 };
 
 export const actions = {
@@ -23,5 +28,8 @@ export const actions = {
   },
   async loadProductList({ state, commit, dispatch, rootGetters }, data) {
     commit("setProductList", data);
+  },
+  setSelectedSkuId({ commit }, data) {
+    commit("setSelectedSkuId", data);
   },
 };

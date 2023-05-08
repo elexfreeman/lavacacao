@@ -1,20 +1,13 @@
 <template>
-  <div class="sku__top-wraper" @click="onClick">
+  <div class="sku">
     <div class="sku__left">
-      <div id="sku-slider" class="sku__slider">
-        <div
-          class="sku-list-item__img"
-          style="
-            background-image: url(http://lavacacao.ru:1337/uploads/10_00297b25d4.jpg);
-          "
-        ></div>
+      <div class="sku__slider">
+        <SkuSlider :imgList="sliderImgList" />
       </div>
     </div>
     <div class="sku__right">
       <div class="sku__title">{{ sku.title }}</div>
-      <div class="sku__sku-wraper">
-        <div class="sku__sku-btn" :style="skuBtnImg"></div>
-      </div>
+      <SkuBtnList />
       <div class="sku__description" v-html="sku.description"></div>
       <div id="sku-add-to-cart-btn"></div>
     </div>
@@ -24,10 +17,17 @@
 <script>
 import { MEDIA_URL } from "../config";
 
+import SkuSlider from "./SkuSlider.vue";
+import SkuBtnList from "./SkuBtnList.vue";
+
 export default {
   name: "Sku",
   data() {
     return {};
+  },
+  components: {
+    SkuSlider,
+    SkuBtnList,
   },
   props: {
     sku: {
@@ -40,6 +40,11 @@ export default {
       return {
         backgroundImage: `url(${MEDIA_URL}${this.sku.sku_btn_img.data.attributes.url})`,
       };
+    },
+    sliderImgList() {
+      let resp = [];
+
+      return resp;
     },
   },
   methods: {
@@ -54,9 +59,16 @@ export default {
 .sku {
   display: flex;
   flex-direction: column;
+
   @include display-after(sm) {
     flex-direction: row;
     gap: 40px;
+  }
+
+  &__left,
+  &__right {
+    width: 50vw;
+    min-height: 50px;
   }
 
   &__title {
@@ -68,17 +80,6 @@ export default {
     @include display-after(sm) {
       font-size: 30px;
     }
-  }
-
-  &__sku-wraper {
-    display: flex;
-  }
-
-  &__sku-btn {
-    width: 50px;
-    height: 50px;
-    background-size: contain;
-    background-position: center;
   }
 
   &__description {

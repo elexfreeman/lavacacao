@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <Sku :sku="sku" v-for="(sku, key) in skuList" :key="key" />
+    <Sku :sku="sku" />
     <div class="product__bottom-wraper">
       <div class="product__bottom-title">Состав:</div>
       <div class="product__bottom-text-wraper">
@@ -40,7 +40,13 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters("product", ["product"]),
+    ...mapGetters("product", ["product", "selectedSkuId"]),
+    sku() {
+      const sku = this.skuList.find((item) => {
+        return item.id === this.selectedSkuId;
+      });
+      return sku ? sku : {};
+    },
     img() {
       return {
         backgroundImage: `url(${MEDIA_URL}${this.pageCommonData.aboutImg.data.attributes.formats.large.url})`,
@@ -48,7 +54,6 @@ export default {
     },
     skuList() {
       let resp = [];
-      console.log(this.product);
       if (this.product?.attributes?.sku_choco_candle?.length) {
         resp = this.product?.attributes?.sku_choco_candle;
       }

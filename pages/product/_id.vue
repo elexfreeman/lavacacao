@@ -26,6 +26,29 @@ export default {
     const product = (
       await $axios.$get(`${API_URL}/choco-candles/${params.id}?populate=deep`)
     ).data;
+
+    const getSkuList = () => {
+      let resp = [];
+      if (product?.attributes?.sku_choco_candle?.length) {
+        resp = product?.attributes?.sku_choco_candle;
+      }
+      return resp;
+    };
+
+    const skuList = getSkuList();
+
+    if (skuList.length > 0) {
+      const selectedSku = skuList[0];
+      store.dispatch("product/setSelectedSkuId", selectedSku.id);
+
+      for (let k = 0; k < skuList.length; k++) {
+        skuList[k].description = skuList[k]?.description?.replace(
+          /\n/g,
+          "<br />"
+        );
+      }
+    }
+
     store.dispatch("product/loadProduct", product);
 
     return {};
