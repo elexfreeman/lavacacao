@@ -1,29 +1,33 @@
 <template>
   <div class="container product-list">
     <div class="product-list__title">
-      Наша основная концепция — совмещение уюта и тепла натурального дерева с
-      функцией светильника.
+      {{ pageCommonData.productListTitle }}
     </div>
     <div class="results-listing-content">
-      <ProductListItem v-for="(item, key) in productList" :key="key" />
+      <NuxtLink
+        v-for="(product, key) in productList"
+        :key="key"
+        :to="`/product/${product.id}`"
+      >
+        <ProductListItem :product="product" />
+      </NuxtLink>
     </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "ProductList",
   data() {
-    return {
-      productList: [],
-    };
+    return {};
   },
-
-  mounted() {
-    for (let k = 0; k < 10; k++) {
-      this.productList.push(1);
-    }
+  computed: {
+    ...mapGetters("product", ["productList"]),
+    ...mapGetters("mainData", ["pageCommonData"]),
   },
+  mounted() {},
 };
 </script>
 <style lang="scss" scoped>
@@ -50,6 +54,10 @@ export default {
 
 .product-list {
   margin-bottom: 20px;
+
+  a {
+    text-decoration: none;
+  }
 
   @include display-after(sm) {
     margin-bottom: 40px;

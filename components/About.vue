@@ -1,8 +1,8 @@
 <template>
-  <div class="about" @click="onClick">
+  <div class="about">
     <div class="about__left">
       <div class="about__wraper">
-        <div class="about__title">{{pageCommonData.aboutTitle}}</div>
+        <div class="about__title">{{ pageCommonData.aboutTitle }}</div>
         <div class="about__description" v-html="aboutText"></div>
       </div>
     </div>
@@ -11,14 +11,12 @@
 </template>
 
 <script>
-import { API_URL, MEDIA_URL } from "../config";
+import { MEDIA_URL } from "../config";
 import { mapGetters } from "vuex";
 export default {
   name: "About",
   data() {
-    return {
-      imgUrl: "http://lavacacao.ru:1337/uploads/10_00297b25d4.jpg",
-    };
+    return {};
   },
   computed: {
     ...mapGetters("mainData", ["pageCommonData"]),
@@ -31,11 +29,7 @@ export default {
       return this.pageCommonData?.aboutText;
     },
   },
-  methods: {
-    onClick() {
-      console.log(this.pageCommonData);
-    },
-  },
+  methods: {},
 };
 </script>
 <style lang="scss" scoped>

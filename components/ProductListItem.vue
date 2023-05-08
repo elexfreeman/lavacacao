@@ -1,21 +1,35 @@
 <template>
   <div class="product-list-item">
-    <div
-      class="product-list-item__img"
-      style="
-        background-image: url(http://lavacacao.ru:1337/uploads/10_00297b25d4.jpg);
-      "
-    ></div>
+    <div class="product-list-item__img" :style="productMainImg"></div>
     <div class="product-list-item__title">
-      Коробка конфет 25 шт. конфета пралине арахисовая
+      {{ productName }}
     </div>
-    <div class="product-list-item__price">3 000 руб.</div>
   </div>
 </template>
 
 <script>
+import { MEDIA_URL } from "../config";
 export default {
   name: "ProductListItem",
+  props: {
+    product: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed: {
+    productName() {
+      return this.product?.attributes?.title;
+    },
+    productMainImg() {
+      const url =
+        this.product?.attributes.common.main_img.data.attributes.formats.medium
+          .url;
+      return {
+        backgroundImage: `url(${MEDIA_URL}${url})`,
+      };
+    },
+  },
 };
 </script>
 <style scoped lang="scss">
