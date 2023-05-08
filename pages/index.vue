@@ -18,7 +18,14 @@ export default {
       return `${MEDIA_URL}${item.image.data.attributes.url}`;
     });
     store.dispatch("mainData/loadMainSlider", slideList);
-    return { slideList };
+
+    const pageCommonData = (
+      await $axios.$get(`${API_URL}/page-data-common?populate=deep`)
+    ).data.attributes;
+    pageCommonData.aboutText = pageCommonData?.aboutText.replace(/\n/g, "<br />");
+    store.dispatch("mainData/loadPageCommonData", pageCommonData);
+
+    return {};
   },
 };
 </script>

@@ -1,16 +1,9 @@
 <template>
-  <div class="about">
+  <div class="about" @click="onClick">
     <div class="about__left">
       <div class="about__wraper">
-        <div class="about__title">О проекте</div>
-        <div class="about__description">
-          Хвоя#nbsp;— это производство авторских светильников и#nbsp;декора
-          из#nbsp;хвойных пород деревьев. Основано в#nbsp;2015 году дизайнером
-          Анной Феоктистовой в#nbsp;Нижнем Новгороде. Основная концепция#nbsp;—
-          совмещение уюта и#nbsp;тепла натурального дерева с#nbsp;функцией
-          светильника. Давно известные светодиодные технологии позволяют
-          воплотить идею в#nbsp;жизнь и#nbsp;сделать это безопасным.
-        </div>
+        <div class="about__title">{{pageCommonData.aboutTitle}}</div>
+        <div class="about__description" v-html="aboutText"></div>
       </div>
     </div>
     <div class="about__right" :style="imgStyle"></div>
@@ -18,6 +11,8 @@
 </template>
 
 <script>
+import { API_URL, MEDIA_URL } from "../config";
+import { mapGetters } from "vuex";
 export default {
   name: "About",
   data() {
@@ -26,11 +21,19 @@ export default {
     };
   },
   computed: {
+    ...mapGetters("mainData", ["pageCommonData"]),
     imgStyle() {
       return {
-        backgroundImage:
-          "url(http://lavacacao.ru:1337/uploads/10_00297b25d4.jpg)",
+        backgroundImage: `url(${MEDIA_URL}${this.pageCommonData.aboutImg.data.attributes.formats.large.url})`,
       };
+    },
+    aboutText() {
+      return this.pageCommonData?.aboutText;
+    },
+  },
+  methods: {
+    onClick() {
+      console.log(this.pageCommonData);
     },
   },
 };
@@ -65,7 +68,6 @@ export default {
 
   &__left,
   &__right {
-    height: 300px;
     width: 50vw;
   }
 
@@ -81,6 +83,7 @@ export default {
   }
   &__right {
     background-size: cover;
+    background-position: center;
     display: none;
     @include display-after(md) {
       display: block;
