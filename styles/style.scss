@@ -1,0 +1,34 @@
+//@import url("https://fonts.googleapis.com/css2?family=Bad+Script&family=Open+Sans:ital,wght@0,300;0,400;1,300&display=swap");
+//@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
+// $--font-family-site: 'Marck Script';
+$--font-family-site: "Open Sans";
+
+$--title-color: #8b8b8b;
+
+@import "./colors.scss";
+@import "./fonts.scss";
+@import "./mixins/mixins.scss";
+@import "./swiper.scss";
+
+body {
+  font-family: $--font-family-site;
+
+  margin: 0;
+}
+
+.lemd-container {
+  width: 100%;
+  margin: 0 auto;
+
+  @include display-after(sm) {
+    max-width: 770px;
+  }
+
+  @include display-after(md) {
+    max-width: 1080px;
+  }
+
+  @include display-after(lg) {
+    max-width: 1194px;
+  }
+}
