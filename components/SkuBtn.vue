@@ -23,7 +23,7 @@ export default {
     skuBtnStyle() {
       return {
         backgroundImage: `url(${MEDIA_URL}${this.sku.sku_btn_img.data.attributes.url})`,
-        borderColor: this.isSelected ? `#986a52` : `#FFFFFF`,
+        borderColor: this.isSelected ? `rgb(255 185 148)` : `#FFFFFF`,
       };
     },
     isSelected() {

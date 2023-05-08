@@ -4,7 +4,6 @@
     <Containter>
       <Product />
     </Containter>
-    <About />
   </div>
 </template>
 

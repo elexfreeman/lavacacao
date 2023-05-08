@@ -1,15 +1,18 @@
 <template>
   <div class="sku">
-    <div class="sku__left">
-      <div class="sku__slider">
-        <SkuSlider :imgList="sliderImgList" />
+    <div class="sku__title-mobile">{{ sku.title }}</div>
+    <div class="sku__wraper">
+      <div class="sku__left">
+        <div class="sku__slider">
+          <SkuSlider :imgList="sliderImgList" />
+        </div>
       </div>
-    </div>
-    <div class="sku__right">
-      <div class="sku__title">{{ sku.title }}</div>
-      <SkuBtnList />
-      <div class="sku__description" v-html="sku.description"></div>
-      <div id="sku-add-to-cart-btn"></div>
+      <div class="sku__right">
+        <div class="sku__title">{{ sku.title }}</div>
+        <SkuBtnList />
+        <div class="sku__description" v-html="sku.description"></div>
+        <div id="sku-add-to-cart-btn"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -43,6 +46,10 @@ export default {
     },
     sliderImgList() {
       let resp = [];
+      console.log(this.sku);
+      resp = this.sku.image_list.data.map((item) => {
+        return `${MEDIA_URL}${item.attributes.formats.large.url}`;
+      });
 
       return resp;
     },
@@ -57,18 +64,41 @@ export default {
 
 <style lang="scss" scoped>
 .sku {
-  display: flex;
-  flex-direction: column;
+  &__title-mobile {
+    width: 100%;
+    font-size: 20px;
+    font-weight: 100;
+    margin-bottom: 20px;
+    color: $--title-color;
 
-  @include display-after(sm) {
-    flex-direction: row;
-    gap: 40px;
+    @include display-after(sm) {
+      display: none;
+    }
   }
 
-  &__left,
+  &__wraper {
+    display: flex;
+    flex-direction: column;
+    @include display-after(sm) {
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
+
+  &__left {
+    width: 100%;
+
+    @include display-after(sm) {
+      width: 30vw;
+    }
+  }
+
   &__right {
-    width: 50vw;
-    min-height: 50px;
+    width: 100%;
+
+    @include display-after(sm) {
+      width: 70vw;
+    }
   }
 
   &__title {
@@ -76,17 +106,20 @@ export default {
     font-weight: 100;
     margin-bottom: 20px;
     color: $--title-color;
+    display: none;
 
     @include display-after(sm) {
       font-size: 30px;
+      display: block;
     }
   }
 
   &__description {
     font-size: 13px;
+    margin-top: 20px;
 
     @include display-after(sm) {
-      font-size: 18px;
+      font-size: 14px;
     }
   }
 

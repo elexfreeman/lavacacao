@@ -8,7 +8,7 @@
           class="img-warpper swiper-slide"
         >
           <div
-            class="carousel-wrapper__img"
+            class="carousel-wrapper-sku__img"
             :style="{ backgroundImage: `url(${slide})` }"
           ></div>
         </div>
@@ -52,13 +52,12 @@ export default {
 
 <style lang="scss" scoped>
 .carousel-wrapper-sku {
-  height: 300px;
   width: 100%;
 
   &__img {
     background-size: cover;
     width: 100%;
-    height: 300px;
+    height: 400px;
     background-position: center;
   }
 

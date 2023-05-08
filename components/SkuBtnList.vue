@@ -48,5 +48,6 @@ export default {
 .sku-btn-list {
   display: flex;
   gap: 5px;
+  margin-top: 20px;
 }
 </style>
