@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import { API_URL, MEDIA_URL } from "../config";
-
 import { mapGetters } from "vuex";
 
 export default {
@@ -40,18 +38,6 @@ export default {
   },
   computed: {
     ...mapGetters("mainData", ["mainSliderItems"]),
-  },
-  mounted: async function () {
-  },
-
-  methods: {
-    async onResize() {
-      console.log("Resized");
-      this.isShow = false;
-      this.$nextTick(function () {
-        this.isShow = true;
-      });
-    },
   },
 };
 </script>

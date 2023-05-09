@@ -18,9 +18,6 @@ import WhyWeItem from "./WhyWeItem.vue";
 
 export default {
   name: "WhyWe",
-  data() {
-    return {};
-  },
   components: {
     Containter,
     WhyWeItem,
@@ -28,21 +25,22 @@ export default {
   computed: {
     ...mapGetters("mainData", ["pageCommonData"]),
     title() {
-      return this.pageCommonData.whyWeTitle;
+      return this.pageCommonData?.whyWeTitle;
     },
     itemList() {
-      return this.pageCommonData.whyWe;
+      return this.pageCommonData?.whyWe ? this.pageCommonData.whyWe : [];
     },
     imgStyle() {
+      const url =
+        this.pageCommonData?.aboutImg?.data?.attributes?.formats?.large?.url;
       return {
-        backgroundImage: `url(${MEDIA_URL}${this.pageCommonData.aboutImg.data.attributes.formats.large.url})`,
+        backgroundImage: `url(${MEDIA_URL}${url})`,
       };
     },
     logoImg() {
       return `${MEDIA_URL}${this.pageCommonData?.logo?.data?.attributes?.url}`;
     },
   },
-  methods: {},
 };
 </script>
 <style lang="scss" scoped>

@@ -13,16 +13,12 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "Footer",
-  data() {
-    return {};
-  },
   computed: {
     ...mapGetters("mainData", ["pageCommonData"]),
     logoImg() {
       return `${MEDIA_URL}${this.pageCommonData?.logo?.data?.attributes?.url}`;
     },
   },
-  methods: {},
 };
 </script>
 <style lang="scss" scoped>

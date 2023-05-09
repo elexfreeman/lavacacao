@@ -11,9 +11,6 @@ import { MEDIA_URL } from "../config";
 
 export default {
   name: "WhyWe",
-  data() {
-    return {};
-  },
   props: {
     item: {
       type: Object,
@@ -22,7 +19,7 @@ export default {
   },
   computed: {
     title() {
-      return this.item.title;
+      return this.item?.title;
     },
 
     description() {
@@ -33,7 +30,6 @@ export default {
       return `${MEDIA_URL}${this.item?.image?.data?.attributes?.url}`;
     },
   },
-  methods: {},
 };
 </script>
 <style lang="scss" scoped>

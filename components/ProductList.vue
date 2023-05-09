@@ -20,14 +20,10 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "ProductList",
-  data() {
-    return {};
-  },
   computed: {
     ...mapGetters("product", ["productList"]),
     ...mapGetters("mainData", ["pageCommonData"]),
   },
-  mounted() {},
 };
 </script>
 <style lang="scss" scoped>

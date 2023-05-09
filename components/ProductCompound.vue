@@ -14,9 +14,6 @@ export default {
   components: {
     ProductSubTitle,
   },
-  data() {
-    return {};
-  },
   props: {
     sku: {
       type: Object,
@@ -33,29 +30,6 @@ export default {
         return item?.attributes?.name ? item.attributes.name : "";
       };
 
-      const chocoTypeList = this.product?.attributes.vidy_shokoladas?.data
-        ?.length
-        ? this.product.attributes.vidy_shokoladas.data
-        : [];
-
-      for (let k = 0; k < chocoTypeList.length; k++) {
-        const chocoName = chocoTypeList[k]?.attributes?.title
-          ? chocoTypeList[k].attributes.title
-          : "";
-
-        const compoundListText = (
-          chocoTypeList[k]?.attributes.composition?.data?.length
-            ? chocoTypeList[k].attributes.composition.data
-            : []
-        )
-          .map(getNameFromCompoundItem)
-          .join(", ");
-
-        const chocoCompoundText = `${chocoName} (${compoundListText})`;
-        resp = [...resp, chocoCompoundText];
-      }
-
-      ///////////
       const nacinkaList = this.product?.attributes?.nachinka_konfetnayas?.data
         ?.length
         ? this.product.attributes.nachinka_konfetnayas.data
@@ -73,7 +47,6 @@ export default {
       return resp.join(", ");
     },
   },
-  methods: {},
 };
 </script>
 

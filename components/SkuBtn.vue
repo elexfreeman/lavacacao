@@ -8,10 +8,6 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "SkuBtn",
-  data() {
-    return {};
-  },
-  components: {},
   props: {
     sku: {
       type: Object,
@@ -21,8 +17,9 @@ export default {
   computed: {
     ...mapGetters("product", ["product", "selectedSkuId"]),
     skuBtnStyle() {
+      const url = this.sku?.sku_btn_img?.data?.attributes?.url;
       return {
-        backgroundImage: `url(${MEDIA_URL}${this.sku.sku_btn_img.data.attributes.url})`,
+        backgroundImage: `url(${MEDIA_URL}${url})`,
         borderColor: this.isSelected ? `rgb(255 185 148)` : `#FFFFFF`,
       };
     },
@@ -30,7 +27,6 @@ export default {
       return this.sku.id === this.selectedSkuId;
     },
   },
-  methods: {},
 };
 </script>
 

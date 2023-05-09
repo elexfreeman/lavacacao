@@ -25,9 +25,6 @@ export default {
     ProductAddDataItem,
     ProductSubTitle,
   },
-  data() {
-    return {};
-  },
   props: {
     sku: {
       type: Object,
@@ -52,7 +49,6 @@ export default {
       return this.dataFields.length > 0;
     },
   },
-  methods: {},
 };
 </script>
 

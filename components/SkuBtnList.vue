@@ -16,21 +16,18 @@ export default {
   components: {
     SkuBtn,
   },
-  data() {
-    return {};
-  },
-  components: {},
   computed: {
     ...mapGetters("product", ["product", "selectedSkuId"]),
     skuBtnImg() {
+      const url = this.sku?.sku_btn_img?.data?.attributes?.url;
       return {
-        backgroundImage: `url(${MEDIA_URL}${this.sku.sku_btn_img.data.attributes.url})`,
+        backgroundImage: `url(${MEDIA_URL}${url})`,
       };
     },
     skuList() {
       let resp = [];
       if (this.product?.attributes?.sku_choco_candle?.length) {
-        resp = this.product?.attributes?.sku_choco_candle;
+        resp = this.product.attributes.sku_choco_candle;
       }
       return resp;
     },

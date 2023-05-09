@@ -40,10 +40,6 @@ export default {
       required: true,
     },
   },
-  computed: {},
-  mounted: async function () {},
-
-  methods: {},
 };
 </script>
 

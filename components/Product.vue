@@ -21,9 +21,6 @@ export default {
     ProductSubTitle,
     ProductCompound,
   },
-  data() {
-    return {};
-  },
   computed: {
     ...mapGetters("product", ["product", "selectedSkuId"]),
     sku() {
@@ -33,8 +30,10 @@ export default {
       return sku ? { ...sku } : {};
     },
     img() {
+      const url =
+        this.pageCommonData?.aboutImg?.data?.attributes?.formats?.large?.url;
       return {
-        backgroundImage: `url(${MEDIA_URL}${this.pageCommonData.aboutImg.data.attributes.formats.large.url})`,
+        backgroundImage: `url(${MEDIA_URL}${url})`,
       };
     },
     skuList() {
@@ -43,11 +42,6 @@ export default {
         resp = this.product?.attributes?.sku_choco_candle;
       }
       return resp;
-    },
-  },
-  methods: {
-    onClick() {
-      console.log(this.pageCommonData);
     },
   },
 };

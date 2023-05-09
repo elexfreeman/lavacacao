@@ -23,8 +23,8 @@ export default {
     },
     productMainImg() {
       const url =
-        this.product?.attributes.common.main_img.data.attributes.formats.medium
-          .url;
+        this.product?.attributes?.common?.main_img?.data?.attributes?.formats
+          ?.medium?.url;
       return {
         backgroundImage: `url(${MEDIA_URL}${url})`,
       };

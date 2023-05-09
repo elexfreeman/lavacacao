@@ -10,21 +10,13 @@ import { MEDIA_URL } from "../config";
 import { mapGetters } from "vuex";
 export default {
   name: "About",
-  data() {
-    return {};
-  },
   computed: {
     ...mapGetters("mainData", ["pageCommonData"]),
-    imgStyle() {
-      return {
-        backgroundImage: `url(${MEDIA_URL}${this.pageCommonData.aboutImg.data.attributes.formats.large.url})`,
-      };
-    },
     logoImg() {
-      return `${MEDIA_URL}${this.pageCommonData?.logo?.data?.attributes?.url}`;
+      const url = this.pageCommonData?.logo?.data?.attributes?.url;
+      return `${MEDIA_URL}${url}`;
     },
   },
-  methods: {},
 };
 </script>
 <style lang="scss" scoped>

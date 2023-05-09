@@ -15,9 +15,6 @@ import { MEDIA_URL } from "../config";
 import { mapGetters } from "vuex";
 export default {
   name: "About",
-  data() {
-    return {};
-  },
   computed: {
     ...mapGetters("mainData", ["pageCommonData"]),
     imgStyle() {
@@ -29,7 +26,6 @@ export default {
       return this.pageCommonData?.aboutText;
     },
   },
-  methods: {},
 };
 </script>
 <style lang="scss" scoped>

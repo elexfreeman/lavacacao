@@ -13,17 +13,12 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "ProductBreadcrumbs",
-  components: {},
-  data() {
-    return {};
-  },
   computed: {
     ...mapGetters("product", ["product", "selectedSkuId"]),
     skuTitle() {
       return this.product?.attributes?.title;
     },
   },
-  methods: {},
 };
 </script>
 

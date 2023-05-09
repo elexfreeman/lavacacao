@@ -8,7 +8,6 @@
 <script>
 export default {
   name: "ProductAddDataItem",
-  components: {},
   props: {
     title: {
       type: String,
@@ -19,8 +18,6 @@ export default {
       required: true,
     },
   },
-  computed: {},
-  methods: {},
 };
 </script>
 

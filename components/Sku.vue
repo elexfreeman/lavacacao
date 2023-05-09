@@ -30,9 +30,6 @@ import SkuBtnList from "./SkuBtnList.vue";
 
 export default {
   name: "Sku",
-  data() {
-    return {};
-  },
   components: {
     SkuSlider,
     SkuBtnList,
@@ -68,12 +65,8 @@ export default {
           })
           .sort(compareFn);
       }
-      console.log(resp)
       return resp;
     },
-  },
-  methods: {
-    onClick() {},
   },
 };
 </script>
