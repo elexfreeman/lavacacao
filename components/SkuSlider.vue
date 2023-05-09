@@ -20,10 +20,6 @@
 </template>
 
 <script>
-import { API_URL, MEDIA_URL } from "../config";
-
-import { mapGetters } from "vuex";
-
 export default {
   data() {
     return {
@@ -31,6 +27,7 @@ export default {
       options: {
         slidesPerView: 1,
         loop: true,
+        autoplay: true,
         pagination: {
           el: ".swiper-pagination",
         },
@@ -59,6 +56,18 @@ export default {
     width: 100%;
     height: 400px;
     background-position: center;
+
+    @include display-after(sm) {
+      height: 600px;
+    }
+
+    @include display-after(md) {
+      height: 700px;
+    }
+
+    @include display-after(lg) {
+      height: 800px;
+    }
   }
 
   .swiper-slide {

@@ -31,6 +31,7 @@ export default {
       options: {
         slidesPerView: 1,
         loop: true,
+        autoplay: true,
         pagination: {
           el: ".swiper-pagination",
         },

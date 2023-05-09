@@ -14,6 +14,8 @@
         <div class="sku__title">{{ sku.title }}</div>
         <SkuBtnList />
         <div class="sku__description" v-html="sku.description"></div>
+        <ProductCompound :sku="sku" />
+        <ProductAddData :sku="sku" />
         <div id="sku-add-to-cart-btn"></div>
       </div>
     </div>
@@ -44,15 +46,29 @@ export default {
   computed: {
     skuBtnImg() {
       return {
-        backgroundImage: `url(${MEDIA_URL}${this.sku.sku_btn_img.data.attributes.url})`,
+        backgroundImage: `url(${MEDIA_URL}${this.sku?.sku_btn_img?.data?.attributes?.url})`,
       };
     },
     sliderImgList() {
       let resp = [];
-      resp = this.sku.image_list.data.map((item) => {
-        return `${MEDIA_URL}${item.attributes.formats.large.url}`;
-      });
+      const compareFn = (a, b) => {
+        if (a < b) {
+          return -1;
+        }
 
+        if (a > b) {
+          return 1;
+        }
+        return 0;
+      };
+      if (this.sku?.image_list?.data?.length) {
+        resp = [...this.sku.image_list.data]
+          .map((item) => {
+            return `${MEDIA_URL}${item?.attributes?.formats?.large?.url}`;
+          })
+          .sort(compareFn);
+      }
+      console.log(resp)
       return resp;
     },
   },

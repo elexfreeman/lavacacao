@@ -32,7 +32,7 @@ export default {
   grid-template-columns: 1fr 1fr;
 
   @include display-after(sm) {
-    grid-template-columns: repeat(auto-fill, minmax(0, 260px));
+    grid-template-columns: repeat(auto-fill, minmax(0, 200px));
   }
 }
 </style>

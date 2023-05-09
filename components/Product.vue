@@ -1,8 +1,6 @@
 <template>
   <div class="product">
     <Sku :sku="sku" />
-    <ProductCompound :sku="sku" />
-    <ProductAddData :sku="sku" />
   </div>
 </template>
 
@@ -32,7 +30,7 @@ export default {
       const sku = this.skuList.find((item) => {
         return item.id === this.selectedSkuId;
       });
-      return sku ? sku : {};
+      return sku ? { ...sku } : {};
     },
     img() {
       return {
