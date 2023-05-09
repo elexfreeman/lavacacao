@@ -4,7 +4,10 @@
     <div class="sku__wraper">
       <div class="sku__left">
         <div class="sku__slider">
-          <SkuSlider :imgList="sliderImgList" />
+          <client-only placeholder="Loading...">
+            <SkuSlider :imgList="sliderImgList" />
+            <!-- this component will only be rendered on client-side -->
+          </client-only>
         </div>
       </div>
       <div class="sku__right">

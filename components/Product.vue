@@ -1,27 +1,8 @@
 <template>
   <div class="product">
     <Sku :sku="sku" />
-    <div class="product__bottom-wraper">
-      <div class="product__bottom-title">Состав:</div>
-      <div class="product__bottom-text-wraper">
-        молочный шоколад 30%(сахар, сухое цельное молоко, масло какао, какао
-        тертое, сухое обезжиренное молоко, эмульгатор: соевый лецитин,
-        натуральный экстракт ванили), горький шоколад 72% (какао тертое, сахар,
-        масло какао, эмульгатор: соевый лецитин, натуральный экстракт ванили),
-        сахар, вафельная крошка (мука пшеничная, сахар; молочный жир; лактоза
-        (молоко); молочный белок; cоль; экстракт солода (ячмень); разрыхлитель:
-        сода пищевая), арахис, фундук, масло какао, кешью, грецкий орех,
-        кокосовая стружка, фисташки, цукаты имбирные (имбирь, сахар), кунжут,
-        семена чиа, ягоды годжи (ягоды годжи, сахар), сироп глюкозы, яйцо,
-        миндаль, чернослив, базилик, масло виноградное, масло сливочное, ром
-        Бакарди тёмный (вода питьевая исправленная, ромовый выдержанный
-        дистиллят, краситель: сахарный колер), какао-порошок, молоко, соль
-        морская, имбирь молотый, куркума молотая, чай зелёный матча, кофе, сок
-        свеклы красной (порошок), паприка красная молотая, красители
-        натуральные: бета-каротин, экстракт чёрной моркови, медный комплекс
-        хлорофиллинов
-      </div>
-    </div>
+    <ProductCompound :sku="sku" />
+    <ProductAddData :sku="sku" />
   </div>
 </template>
 
@@ -30,11 +11,17 @@ import { MEDIA_URL } from "../config";
 import { mapGetters } from "vuex";
 
 import Sku from "./Sku.vue";
+import ProductAddData from "./ProductAddData.vue";
+import ProductSubTitle from "./ProductSubTitle.vue";
+import ProductCompound from "./ProductCompound.vue";
 
 export default {
   name: "Product",
   components: {
     Sku,
+    ProductAddData,
+    ProductSubTitle,
+    ProductCompound,
   },
   data() {
     return {};
@@ -122,6 +109,7 @@ export default {
   }
 
   &__bottom-title {
+    color: $--title-color;
     margin-bottom: 4px;
     font-weight: 200;
   }
