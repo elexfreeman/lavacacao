@@ -48,10 +48,10 @@ export default {
 <style lang="scss" scoped>
 .why-we {
   width: 100%;
-  margin-bottom: 0px;
+  margin-bottom: 20px;
 
   @include display-after(sm) {
-    margin-bottom: 0px;
+    margin-bottom: 20px;
   }
 
   &__wraper {

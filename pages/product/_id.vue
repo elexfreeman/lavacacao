@@ -5,6 +5,7 @@
       <ProductBreadcrumbs />
       <Product />
     </Containter>
+    <Footer />
   </div>
 </template>
 

@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <img class="header__logo" :src="logoImg" />
+    <NuxtLink to="/">
+      <img class="header__logo" :src="logoImg" />
+    </NuxtLink>
   </div>
 </template>
 <script>

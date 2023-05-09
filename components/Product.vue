@@ -70,6 +70,8 @@ export default {
 
 <style lang="scss" scoped>
 .product {
+  margin-bottom: 20px;
+
   &__top-wraper {
     display: flex;
     flex-direction: column;

@@ -22,7 +22,7 @@ export default {
     ...mapGetters("mainData", ["pageCommonData"]),
     imgStyle() {
       return {
-        backgroundImage: `url(${MEDIA_URL}${this.pageCommonData.aboutImg.data.attributes.formats.large.url})`,
+        backgroundImage: `url(${MEDIA_URL}${this.pageCommonData?.aboutImg?.data?.attributes?.formats?.large?.url})`,
       };
     },
     aboutText() {

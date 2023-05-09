@@ -5,6 +5,7 @@
     <ProductList />
     <About />
     <WhyWe />
+    <Footer />
   </div>
 </template>
 
