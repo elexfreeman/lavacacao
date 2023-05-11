@@ -7,7 +7,6 @@
       <i class="fa-brands fa-instagram"></i>
       <span>{{ pageCommonData.instagrammLink }}</span>
     </div>
-    <img class="footer__logo" :src="logoImg" />
   </div>
 </template>
 <script>

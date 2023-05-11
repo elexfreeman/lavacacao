@@ -43,21 +43,21 @@ export default {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 0px;
 
+  @include display-after(md) {
+    justify-content: space-around;
+  }
+
   @include display-after(sm) {
-    margin-bottom: 0px;
+    justify-content: space-between;
   }
 
   &__text-wraper-mobile {
     display: block;
     text-align: center;
-    position: absolute;
-    top: 200px;
-    left: 0;
-    z-index: 100;
-    width: 100vw;
+    width: auto;
     display: flex;
     justify-content: center;
 

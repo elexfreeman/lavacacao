@@ -37,20 +37,24 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header-contacts {
-  display: flex;
-  align-items: right;
+  display: none;
+  align-items: flex-end;
   justify-content: right;
   flex-direction: column;
 
-  @include display-after(sm) {
+  @include display-after(md) {
+  display: flex;
   }
 
   &__field {
-    font-size: 20px;
+    font-size: 13px;
     text-align: right;
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+    @include display-after(sm) {
+      font-size: 20px;
+    }
   }
 
   &__img {

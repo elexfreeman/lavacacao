@@ -54,14 +54,15 @@ export default {
 
   &__wraper {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(0, 160px));
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 20px 20px;
     justify-content: space-around;
 
     @include display-after(sm) {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
       gap: 20px;
     }
   }
