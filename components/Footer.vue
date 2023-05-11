@@ -7,6 +7,7 @@
       <i class="fa-brands fa-instagram"></i>
       <span>{{ pageCommonData.instagrammLink }}</span>
     </div>
+    <img class="footer__logo" :src="logoImg">
   </div>
 </template>
 <script>
@@ -29,18 +30,16 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $--footer-color;
   padding: 20px 0;
-  color: $--color-white;
   font-size: 13px;
   flex-direction: column;
+  background-color: $--footer-color;
 
   @include display-after(sm) {
   }
 
   &__title {
     @include title-font();
-    color: $--color-white;
   }
 
   &__field {

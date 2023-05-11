@@ -59,7 +59,7 @@ export default {
 
   &__left {
     width: 100%;
-    background-color: #faf9f5;
+    background-color: $--footer-color;
     display: flex;
     align-items: center;
 

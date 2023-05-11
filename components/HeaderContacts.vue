@@ -42,8 +42,8 @@ export default {
   justify-content: right;
   flex-direction: column;
 
-  @include display-after(md) {
-  display: flex;
+  @include display-after(sm) {
+    display: flex;
   }
 
   &__field {
@@ -53,7 +53,7 @@ export default {
     align-items: center;
     margin-bottom: 5px;
     @include display-after(sm) {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 
