@@ -19,8 +19,7 @@ $content-max-width: (
   1660px
 ); // Set the max-width of the row well
 
-$breakpoint-up-prefixes: ('xs', 'sm', 'md', 'lg');
-
+$breakpoint-up-prefixes: ("xs", "sm", "md", "lg");
 
 @mixin display-after($screen) {
   @if $screen == xs {
@@ -46,11 +45,11 @@ $breakpoint-up-prefixes: ('xs', 'sm', 'md', 'lg');
 
 @mixin title-font() {
   font-size: 20px;
-  line-height: 26px;
+  font-weight: 100;
+  margin-bottom: 20px;
+  color: $--title-color;
+
   @include display-after(sm) {
-    font-size: 64px;
-    line-height: 101px;
+    font-size: 30px;
   }
 }
-
-

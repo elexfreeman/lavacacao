@@ -69,14 +69,7 @@ export default {
   }
 
   &__title {
-    font-size: 20px;
-    font-weight: 100;
-    margin-bottom: 20px;
-    color: $--title-color;
-
-    @include display-after(sm) {
-      font-size: 30px;
-    }
+    @include title-font();
   }
 
   &__sku-wraper {

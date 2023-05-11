@@ -3,7 +3,10 @@
     <div class="footer__title">Контакты</div>
     <div class="footer__field">{{ pageCommonData.phone }}</div>
     <div class="footer__field">{{ pageCommonData.address }}</div>
-    <div class="footer__field">{{ pageCommonData.instagrammLink }}</div>
+    <div class="footer__field">
+      <i class="fa-brands fa-instagram"></i>
+      <span>{{ pageCommonData.instagrammLink }}</span>
+    </div>
     <img class="footer__logo" :src="logoImg" />
   </div>
 </template>
@@ -29,7 +32,7 @@ export default {
   justify-content: center;
   background-color: $--footer-color;
   padding: 20px 0;
-  color: #ffffff;
+  color: $--color-white;
   font-size: 13px;
   flex-direction: column;
 
@@ -37,17 +40,16 @@ export default {
   }
 
   &__title {
-    font-size: 20px;
-    font-weight: 100;
-    margin-bottom: 20px;
-
-    @include display-after(sm) {
-      font-size: 30px;
-    }
+    @include title-font();
+    color: $--color-white;
   }
 
   &__field {
     padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
   }
 
   &__logo {

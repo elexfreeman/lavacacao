@@ -60,18 +60,9 @@ export default {
   }
 
   &__title {
-    font-size: 20px;
-    color: $--title-color;
-    padding: 22px 0;
+    @include title-font();
+    margin-top: 20px;
     text-align: center;
-    line-height: 26px;
-    font-weight: 100;
-
-    @include display-after(sm) {
-      font-size: 30px;
-      padding: 27px 0;
-      line-height: 37px;
-    }
   }
 }
 </style>

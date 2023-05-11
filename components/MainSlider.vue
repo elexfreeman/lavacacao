@@ -47,11 +47,25 @@ export default {
   height: 300px;
   width: 100%;
 
+  @include display-after(sm) {
+    height: 600px;
+  }
+  @include display-after(md) {
+    height: 800px;
+  }
+
   &__img {
     background-size: cover;
     width: 100%;
     height: 300px;
     background-position: center;
+
+    @include display-after(sm) {
+      height: 600px;
+    }
+    @include display-after(md) {
+      height: 800px;
+    }
   }
 
   .swiper-slide {
@@ -64,12 +78,11 @@ export default {
   .img-warpper img {
     margin: auto;
     width: 100%;
-    height: 300px;
     background-image: linear-gradient(gray 100%, transparent 0);
   }
 
   ::v-deep.swiper-pagination-bullet-active {
-    background-color: black;
+    background-color: $--color-black;
   }
 }
 .swiper-pagination {
@@ -80,7 +93,7 @@ export default {
   gap: 5px;
 
   .swiper-pagination-bullet-active {
-    background: #966851;
+    background: $--link-color;
   }
 }
 </style>
