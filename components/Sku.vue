@@ -13,7 +13,7 @@
       <div class="sku__right">
         <div class="sku__title">{{ sku.title }}</div>
         <SkuBtnList />
-        <div class="sku__description" v-html="sku.description"></div>
+        <div class="sku__description" v-html="description"></div>
         <ProductCompound :sku="sku" />
         <ProductAddData :sku="sku" />
         <div id="sku-add-to-cart-btn"></div>
@@ -39,12 +39,21 @@ export default {
       type: Object,
       required: true,
     },
+    product: {
+      type: Object,
+      required: true,
+    },
   },
   computed: {
     skuBtnImg() {
       return {
         backgroundImage: `url(${MEDIA_URL}${this.sku?.sku_btn_img?.data?.attributes?.url})`,
       };
+    },
+    description() {
+      return this.sku.description
+        ? this.sku.description
+        : this.product.attributes.common.description.replaceAll('\n','<br/>');
     },
     sliderImgList() {
       let resp = [];

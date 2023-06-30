@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <Sku :sku="sku" />
+    <Sku :sku="sku" :product="product" />
   </div>
 </template>
 
