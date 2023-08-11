@@ -37,13 +37,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header-contacts {
-  display: none;
-  align-items: flex-end;
-  justify-content: right;
-  flex-direction: column;
+  display: flex;
+  gap: 26px;
 
   @include display-after(sm) {
-    display: flex;
   }
 
   &__field {
@@ -59,6 +56,7 @@ export default {
 
   &__img {
     width: 25px;
+    margin-right: 8px;
   }
 }
 </style>

@@ -1,8 +1,8 @@
 // After changing, update also in globalSettings
 // Actual breakpoints (mobile first)
-$--screen-sm: 1020px;
-$--screen-md: 1440px;
-$--screen-lg: 1660px;
+$--screen-sm: 390px;
+$--screen-md: 820px;
+$--screen-lg: 1920px;
 // Grid breakpoints (sm, md, lg)
 $breakpoints: ($--screen-sm, $--screen-md, $--screen-lg);
 

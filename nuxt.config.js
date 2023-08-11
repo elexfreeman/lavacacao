@@ -21,7 +21,8 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+  ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -31,6 +32,10 @@ export default {
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
+  components: [
+    "~/components",
+    { path: "~/components/common", extensions: ["vue"] },
+  ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/style-resources", "@nuxtjs/axios"],

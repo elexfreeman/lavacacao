@@ -1,11 +1,6 @@
 <template>
   <div>
-    <Header />
     <MainSlider />
-    <ProductList />
-    <About />
-    <WhyWe />
-    <Footer />
   </div>
 </template>
 
@@ -22,6 +17,19 @@ export default {
       /\n/g,
       "<br />"
     );
+    console.log(pageCommonData, ">>>");
+
+    pageCommonData.topMenu = pageCommonData?.top_menus?.data?.map((item) => {
+      return {
+        caption: item.attributes.caption,
+        link: item.attributes.link,
+      };
+    });
+
+    if (!pageCommonData.topMenu) {
+      pageCommonData.topMenu = [];
+    }
+
     store.dispatch("mainData/loadPageCommonData", pageCommonData);
 
     const data = await $axios.$get(`${API_URL}/main-slider?populate=deep`);

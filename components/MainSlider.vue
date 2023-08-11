@@ -1,5 +1,16 @@
 <template>
   <div class="carousel-wrapper">
+    <div class="header-float">
+      <LvContainer>
+        <Header />
+      </LvContainer>
+      <h1 class="header-float__title">
+        {{ pageCommonData.title }}
+      </h1>
+      <h2 class="header-float__description">
+        {{ pageCommonData.description }}
+      </h2>
+    </div>
     <div v-swiper:mySwiper="options">
       <div class="swiper-wrapper">
         <div
@@ -21,6 +32,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { MEDIA_URL } from "../config";
 
 export default {
   data() {
@@ -37,12 +49,58 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("mainData", ["mainSliderItems"]),
+    ...mapGetters("mainData", ["mainSliderItems", "pageCommonData"]),
+    locationIco() {
+      return `${MEDIA_URL}${this.pageCommonData?.locationIco?.data?.attributes?.url}`;
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.header-float {
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  height: 100px;
+  z-index: 20;
+  height: 300px;
+  background-color: #0000005e;
+
+  @include display-after(sm) {
+    height: 600px;
+  }
+  @include display-after(md) {
+    height: 800px;
+  }
+
+  &__title {
+    width: 100%;
+    font-size: 56px;
+    line-height: auto;
+    text-align: center;
+    margin-top: 247px;
+
+    @include display-after(sm) {
+    }
+    @include display-after(md) {
+    }
+  }
+
+  &__description {
+    width: 100%;
+    font-size: 36px;
+    line-height: auto;
+    text-align: center;
+    font-weight: 200;
+
+    @include display-after(sm) {
+    }
+    @include display-after(md) {
+    }
+  }
+}
 .carousel-wrapper {
   height: 300px;
   width: 100%;
@@ -66,6 +124,10 @@ export default {
     @include display-after(md) {
       height: 800px;
     }
+  }
+
+  .swiper-wraper {
+//    position: absolute;
   }
 
   .swiper-slide {
