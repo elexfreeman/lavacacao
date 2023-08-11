@@ -1,14 +1,14 @@
 <template>
   <div class="header-contacts">
-    <div class="header-contacts__field">
+    <div v-if="pageCommonData.phone" class="header-contacts__field">
       <img class="header-contacts__img" :src="phoneIco" />
       <span>{{ pageCommonData.phone }}</span>
     </div>
-    <div class="header-contacts__field">
+    <div v-if="pageCommonData.address" class="header-contacts__field">
       <img class="header-contacts__img" :src="locationIco" />
       <span>{{ pageCommonData.address }}</span>
     </div>
-    <div class="header-contacts__field">
+    <div v-if="pageCommonData.instagrammLink" class="header-contacts__field">
       <img class="header-contacts__img" :src="instaIco" />
       <span>{{ pageCommonData.instagrammLink }}</span>
     </div>

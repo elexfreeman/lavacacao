@@ -1,12 +1,14 @@
 <template>
   <div class="about">
-    <div class="about__left">
-      <div class="about__wraper">
-        <div class="about__title">{{ pageCommonData.aboutTitle }}</div>
-        <div class="about__description" v-html="aboutText"></div>
+    <LvContainer>
+      <div class="about__left">
+        <div class="about__wraper">
+          <div class="about__title">{{ pageCommonData.aboutTitle }}</div>
+          <div class="about__description" v-html="aboutText"></div>
+        </div>
       </div>
-    </div>
-    <div class="about__right" :style="imgStyle"></div>
+      <div class="about__right" :style="imgStyle"></div>
+    </LvContainer>
   </div>
 </template>
 
@@ -33,23 +35,21 @@ export default {
 </script>
 <style lang="scss" scoped>
 .about {
+  color: $--text-gray;
   display: flex;
-  font-size: 13px;
+  background-image: url("../assets/bg-mirible.jpg");
 
   &__wraper {
-    margin: 20px;
-
     @include display-after(sm) {
-      margin: 140px;
     }
 
     @include display-after(md) {
-      margin: 40px;
     }
   }
 
   &__title {
     @include title-font();
+    color: $--text-gray;
   }
 
   &__left,
@@ -59,11 +59,10 @@ export default {
 
   &__left {
     width: 100%;
-    background-color: $--footer-color;
     display: flex;
     align-items: center;
 
-    @include display-after(md) {
+    @include display-after(lg) {
       width: 50vw;
     }
   }
@@ -71,7 +70,7 @@ export default {
     background-size: cover;
     background-position: center;
     display: none;
-    @include display-after(md) {
+    @include display-after(lg) {
       display: block;
     }
   }

@@ -1,6 +1,8 @@
 <template>
   <div>
     <MainSlider />
+    <ProductList />
+    <About />
   </div>
 </template>
 
@@ -17,7 +19,6 @@ export default {
       /\n/g,
       "<br />"
     );
-    console.log(pageCommonData, ">>>");
 
     pageCommonData.topMenu = pageCommonData?.top_menus?.data?.map((item) => {
       return {

@@ -65,69 +65,86 @@ export default {
   left: 0;
   height: 100px;
   z-index: 20;
-  height: 300px;
   background-color: #0000005e;
+  height: 844px;
 
-  @include display-after(sm) {
-    height: 600px;
-  }
   @include display-after(md) {
-    height: 800px;
+    height: 1194px;
+  }
+
+  @include display-after(lg) {
+    height: 1024px;
   }
 
   &__title {
     width: 100%;
     font-size: 56px;
-    line-height: auto;
     text-align: center;
     margin-top: 247px;
+    margin-bottom: 0;
+    font-family: AgeoExtraBold;
+    font-weight: 800;
+    text-transform: lowercase;
 
     @include display-after(sm) {
     }
     @include display-after(md) {
+      font-size: 124px;
+    }
+
+    @include display-after(lg) {
+      font-size: 148px;
     }
   }
 
   &__description {
     width: 100%;
     font-size: 36px;
-    line-height: auto;
     text-align: center;
     font-weight: 200;
+    font-family: Hamiltone;
+    margin-top: 50px;
 
-    @include display-after(sm) {
-    }
     @include display-after(md) {
+      font-size: 52px;
+      margin-top: 90px;
+    }
+    @include display-after(lg) {
+      font-size: 80px;
+      margin-top: 120px;
     }
   }
 }
 .carousel-wrapper {
-  height: 300px;
   width: 100%;
+  height: 844px;
 
-  @include display-after(sm) {
-    height: 600px;
-  }
   @include display-after(md) {
-    height: 800px;
+    height: 1194px;
+  }
+
+  @include display-after(lg) {
+    height: 1024px;
   }
 
   &__img {
     background-size: cover;
     width: 100%;
-    height: 300px;
     background-position: center;
 
-    @include display-after(sm) {
-      height: 600px;
-    }
+    height: 844px;
+
     @include display-after(md) {
-      height: 800px;
+      height: 1194px;
+    }
+
+    @include display-after(lg) {
+      height: 1024px;
     }
   }
 
   .swiper-wraper {
-//    position: absolute;
+    //    position: absolute;
   }
 
   .swiper-slide {
@@ -140,7 +157,8 @@ export default {
   .img-warpper img {
     margin: auto;
     width: 100%;
-    background-image: linear-gradient(gray 100%, transparent 0);
+    //  background-image: linear-gradient(gray 100%, transparent 0);
+    background-color: #0000005e;
   }
 
   ::v-deep.swiper-pagination-bullet-active {
