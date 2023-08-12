@@ -22,9 +22,6 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "Galery",
-  mounted() {
-    console.log(this.pageCommonData);
-  },
   computed: {
     ...mapGetters("mainData", ["pageCommonData"]),
     aboutText() {
@@ -62,12 +59,12 @@ export default {
 
     @include display-after(md) {
       grid-template-rows: 150px 150px 150px 150px;
-    grid-gap: 15px;
+      grid-gap: 15px;
     }
 
     @include display-after(lg) {
       grid-template-rows: 200px 200px 200px 200px;
-    grid-gap: 20px;
+      grid-gap: 20px;
     }
   }
 
