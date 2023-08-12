@@ -3,6 +3,7 @@
     <MainSlider />
     <ProductList />
     <About />
+    <Galery />
   </div>
 </template>
 

@@ -32,19 +32,6 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "About",
-  mounted() {
-    console.log(this.pageCommonData);
-  },
-  methods: {
-    getImgClass(key) {
-      return `about__item-${key + 1}`;
-    },
-    getImgStyle(key) {
-      return {
-        backgroundImage: `url(${this.imageList[key]})`,
-      };
-    },
-  },
   computed: {
     ...mapGetters("mainData", ["pageCommonData"]),
     aboutText() {
@@ -54,6 +41,16 @@ export default {
       return this.pageCommonData?.aboutImg?.data?.map(
         (item) => `${MEDIA_URL}${item.attributes.formats.large.url}`
       );
+    },
+  },
+  methods: {
+    getImgClass(key) {
+      return `about__item-${key + 1}`;
+    },
+    getImgStyle(key) {
+      return {
+        backgroundImage: `url(${this.imageList[key]})`,
+      };
     },
   },
 };
