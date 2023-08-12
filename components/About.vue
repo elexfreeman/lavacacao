@@ -21,6 +21,7 @@
           </div>
         </div>
       </div>
+      <WhyWe />
     </LvContainer>
   </div>
 </template>
@@ -62,6 +63,7 @@ export default {
   color: $--text-gray;
   display: flex;
   background-image: url("../assets/bg-mirible.jpg");
+  background-size: cover;
 
   &__grid {
     @include display-after(lg) {
