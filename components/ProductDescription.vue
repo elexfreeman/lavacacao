@@ -5,7 +5,11 @@
       <div class="product-description__arrow" :class="arrowClass"></div>
     </div>
     <div class="product-description__line"></div>
-    <div v-show="isOpen" class="product-description__description" v-html="text"></div>
+    <div
+      v-show="isOpen"
+      class="product-description__description"
+      v-html="text"
+    ></div>
   </div>
 </template>
 
@@ -53,6 +57,7 @@ export default {
   margin-top: 20px;
 
   &__description {
+    @include description-font();
     padding-top: 20px;
     transition: all 0.5s ease-in;
   }
@@ -60,6 +65,16 @@ export default {
   &__line {
     margin-top: 10px;
     border-top: 1px solid $--line-color;
+  }
+
+  &__title {
+    font-size: 16px;
+    line-height: 20px;
+
+    @include display-after(lg) {
+      font-size: 24px;
+      line-height: 30px;
+    }
   }
 
   &__title-wraper {

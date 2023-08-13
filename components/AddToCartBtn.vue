@@ -30,13 +30,18 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: $--color-btn;
-  padding: 20px;
+  padding: 15px;
   color: $--color-body;
   font-size: 16px;
   line-height: 20px;
   margin-top: 20px;
 
   @include display-after(md) {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  @include display-after(lg) {
     font-size: 24px;
     line-height: 30px;
   }

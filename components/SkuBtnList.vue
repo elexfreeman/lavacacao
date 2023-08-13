@@ -49,5 +49,9 @@ export default {
   @include display-after(md) {
     margin-top: 0px;
   }
+
+  @include display-after(lg) {
+    gap: 10px;
+  }
 }
 </style>

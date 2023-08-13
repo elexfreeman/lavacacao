@@ -54,14 +54,17 @@ export default {
 
 <style lang="scss" scoped>
 .product-add-data {
-  font-size: 13px;
   margin-top: 20px;
 
+  @include display-after(lg) {
+    width: 50%;
+  }
+
   &__title {
-    font-size: 20px;
     margin-bottom: 4px;
     font-weight: 200;
     color: $--title-color;
+    @include description-font();
 
     @include display-after(sm) {
     }

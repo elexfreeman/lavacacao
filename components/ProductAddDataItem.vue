@@ -23,13 +23,17 @@ export default {
 
 <style lang="scss" scoped>
 .product-add-data-item {
+  @include description-font();
   display: grid;
   gap: 20px 20px;
-  font-size: 13px;
   grid-template-columns: 1fr 1fr;
+  margin-top: 5px;
 
-  @include display-after(sm) {
-    grid-template-columns: repeat(auto-fill, minmax(0, 200px));
+  @include display-after(md) {
+  }
+
+  &__data-value {
+    text-align: right;
   }
 }
 </style>

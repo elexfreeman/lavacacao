@@ -59,7 +59,6 @@ export default {
 
   &__preview-wraper {
     display: flex;
-    justify-content: space-between;
     flex-direction: column;
     gap: 5px;
   }
@@ -70,6 +69,11 @@ export default {
     background-size: cover;
     background-position: center;
     border: 2px solid $--color-body;
+
+    @include display-after(lg) {
+      width: 128px;
+      height: 100px;
+    }
   }
 
   &__preview-img-selected {
@@ -80,14 +84,10 @@ export default {
     background-size: cover;
     width: 100%;
     background-position: center;
-
-    @include display-after(sm) {
-    }
-
-    @include display-after(md) {
-    }
+    height: 488px;
 
     @include display-after(lg) {
+      height: 1000px;
     }
   }
 

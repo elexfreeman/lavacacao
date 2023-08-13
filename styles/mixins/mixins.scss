@@ -62,3 +62,18 @@ $breakpoint-up-prefixes: ("xs", "sm", "md", "lg");
     margin: 70px 0;
   }
 }
+
+@mixin description-font() {
+  font-size: 12px;
+  line-height: 18px;
+
+  @include display-after(md) {
+  font-size: 12px;
+  line-height: 18px;
+  }
+
+  @include display-after(lg) {
+  font-size: 16px;
+  line-height: 20px;
+  }
+}

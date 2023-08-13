@@ -8,13 +8,17 @@
         </div>
       </div>
       <div class="sku__right">
+        <div class="sku__title sku__title-desctop">{{ sku.title }}</div>
         <SkuBtnList />
         <ProductCompound :sku="sku" />
         <ProductAddData :sku="sku" />
         <ProductDescription :text="description" title="Описание" />
+        <div class="sku__add-to-cart-desctop">
+          <AddToCartBtn :productId="product.id" :skuId="sku.id" />
+        </div>
       </div>
     </div>
-    <div class="sku-add-to-cart">
+    <div class="sku__add-to-cart">
       <AddToCartBtn :productId="product.id" :skuId="sku.id" />
     </div>
   </div>
@@ -86,6 +90,10 @@ export default {
       display: grid;
       gap: 10px;
     }
+    @include display-after(md) {
+      display: grid;
+      gap: 20px;
+    }
   }
 
   &__title {
@@ -94,7 +102,19 @@ export default {
     text-align: center;
     margin: 22px 0;
 
-    @include display-after(sm) {
+    @include display-after(lg) {
+      font-size: 32px;
+      line-height: 36px;
+      display: none;
+    }
+  }
+
+  &__title-desctop {
+    display: none;
+    @include display-after(lg) {
+      display: block;
+      text-align: left;
+      margin-top: 0;
     }
   }
 
@@ -124,6 +144,16 @@ export default {
 
   &__add-to-cart {
     widows: 100%;
+    @include display-after(lg) {
+      display: none;
+    }
+  }
+
+  &__add-to-cart-desctop {
+    display: none;
+    @include display-after(lg) {
+      display: block;
+    }
   }
 }
 </style>
