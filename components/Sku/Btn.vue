@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import { MEDIA_URL } from "../config";
+import { MEDIA_URL } from "../../config";
 import { mapGetters } from "vuex";
 
 export default {

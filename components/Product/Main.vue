@@ -1,26 +1,15 @@
 <template>
   <div class="product">
-    <Sku :sku="sku" :product="product" />
+    <SkuMain :sku="sku" :product="product" />
   </div>
 </template>
 
 <script>
-import { MEDIA_URL } from "../config";
+import { MEDIA_URL } from "../../config";
 import { mapGetters } from "vuex";
-
-import Sku from "./Sku.vue";
-import ProductAddData from "./ProductAddData.vue";
-import ProductSubTitle from "./ProductSubTitle.vue";
-import ProductCompound from "./ProductCompound.vue";
 
 export default {
   name: "Product",
-  components: {
-    Sku,
-    ProductAddData,
-    ProductSubTitle,
-    ProductCompound,
-  },
   computed: {
     ...mapGetters("product", ["product", "selectedSkuId"]),
     sku() {

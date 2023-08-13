@@ -18,7 +18,10 @@ export const getters = {
 };
 
 export const actions = {
-  async loadMainSlider({ state, commit, dispatch, rootGetters }, slideList) {
+  async loadMainSlider({ state, commit, dispatch, rootGetters }, data) {
+    const slideList = data.data?.attributes?.item?.map((item) => {
+      return `${MEDIA_URL}${item.image.data.attributes.url}`;
+    });
     commit("setMainSliderItems", slideList);
   },
   async loadPageCommonData({ state, commit, dispatch, rootGetters }, data) {

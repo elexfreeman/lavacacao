@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { MEDIA_URL } from "../config";
+import { MEDIA_URL } from "../../config";
 export default {
   name: "ProductListItem",
   props: {

@@ -31,10 +31,11 @@ export default {
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
   components: [
     "~/components",
     { path: "~/components/common", extensions: ["vue"] },
+    { path: "~/components/product", extensions: ["vue"], prefix: "product" },
+    { path: "~/components/sku", extensions: ["vue"], prefix: "sku" },
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

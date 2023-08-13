@@ -25,17 +25,10 @@
 </template>
 
 <script>
-import { MEDIA_URL } from "../config";
-
-import SkuSlider from "./SkuSlider.vue";
-import SkuBtnList from "./SkuBtnList.vue";
+import { MEDIA_URL } from "../../config";
 
 export default {
   name: "Sku",
-  components: {
-    SkuSlider,
-    SkuBtnList,
-  },
   props: {
     sku: {
       type: Object,
