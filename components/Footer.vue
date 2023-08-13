@@ -17,13 +17,15 @@
         </div>
         <div class="footer__contacts">
           <div v-if="pageCommonData.phone" class="footer__field">
+            <img class="footer__img" :src="phoneIco" />
             {{ pageCommonData.phone }}
           </div>
           <div v-if="pageCommonData.address" class="footer__field">
+            <img class="footer__img" :src="locationIco" />
             {{ pageCommonData.address }}
           </div>
           <div v-if="pageCommonData.instagrammLink" class="footer__field">
-            <i class="fa-brands fa-instagram"></i>
+            <img class="footer__img" :src="instaIco" />
             <span>{{ pageCommonData.instagrammLink }}</span>
           </div>
         </div>
@@ -44,6 +46,15 @@ export default {
     },
     topMenu() {
       return this.pageCommonData.topMenu;
+    },
+    phoneIco() {
+      return `${MEDIA_URL}${this.pageCommonData?.phoneIco?.data?.attributes?.url}`;
+    },
+    locationIco() {
+      return `${MEDIA_URL}${this.pageCommonData?.locationIco?.data?.attributes?.url}`;
+    },
+    instaIco() {
+      return `${MEDIA_URL}${this.pageCommonData?.instaIco?.data?.attributes?.url}`;
     },
   },
 };
@@ -95,8 +106,12 @@ export default {
   &__field {
     padding-bottom: 10px;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
     gap: 4px;
+  }
+
+  &__img {
+    width: 30px;
   }
 
   &__contacts {
