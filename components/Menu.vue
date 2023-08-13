@@ -21,17 +21,16 @@ export default {
       return this.pageCommonData.topMenu;
     },
   },
-  mounted() {},
 };
 </script>
 <style lang="scss">
 .menu {
   display: flex;
   gap: 36px;
+
   &__item {
     font-size: 24px;
     text-decoration: none;
-
   }
 }
 </style>

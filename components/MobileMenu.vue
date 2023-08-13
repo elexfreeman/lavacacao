@@ -1,18 +1,6 @@
 <template>
   <div class="mobile-menu">
-    <svg
-      @click="onOpen"
-      width="48"
-      height="48"
-      viewBox="0 0 48 48"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M6 16V14H40V16H6ZM40 24V26H6V24H40ZM6 34H40V36H6V34Z"
-        fill="white"
-      />
-    </svg>
+    <img @click="onOpen" src="~assets/menu.svg" />
     <div v-if="isOpen" class="mobile-menu__modal">
       <LvContainer class="mobile-menu__content">
         <div class="mobile-menu__wraper">
@@ -29,20 +17,7 @@
           </NuxtLink>
         </div>
 
-        <svg
-          @click="onClose"
-          width="48"
-          height="48"
-          viewBox="0 0 48 48"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M40 35.5V36.5L6 14.5V13.5L40 35.5Z" fill="white" />
-          <path
-            d="M5.99977 36L5.99977 35L39.9998 13.5L40 14.5L5.99977 36Z"
-            fill="white"
-          />
-        </svg>
+        <img @click="onClose" src="~assets/close.svg" />
       </LvContainer>
     </div>
   </div>

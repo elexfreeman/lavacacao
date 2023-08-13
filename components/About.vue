@@ -70,9 +70,6 @@ export default {
     }
   }
 
-  &__wraper {
-  }
-
   &__title {
     @include title-font();
     color: $--text-gray;

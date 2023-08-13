@@ -29,6 +29,9 @@ export default {
   },
   methods: {
     getImg() {
+      if (this.currentSlide > this.imgList.length - 1) {
+        this.currentSlide = 0;
+      }
       return {
         backgroundImage: `url(${this.imgList[this.currentSlide]})`,
       };
@@ -87,37 +90,8 @@ export default {
     height: 488px;
 
     @include display-after(lg) {
-      height: 1000px;
+      height: 800px;
     }
-  }
-
-  .swiper-slide {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .img-warpper img {
-    margin: auto;
-    width: 100%;
-    height: 300px;
-    background-image: linear-gradient(gray 100%, transparent 0);
-  }
-
-  ::v-deep.swiper-pagination-bullet-active {
-    background-color: black;
-  }
-}
-.swiper-pagination {
-  width: 100vw;
-  margin-top: -23px;
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-
-  .swiper-pagination-bullet-active {
-    background: #966851;
   }
 }
 </style>
