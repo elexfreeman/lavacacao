@@ -1,6 +1,6 @@
 <template>
   <div class="product-compound">
-    <ProductSubTitle> Состав: </ProductSubTitle>
+    <ProductSubTitle>Состав: </ProductSubTitle>
     {{ compoundText }}
   </div>
 </template>

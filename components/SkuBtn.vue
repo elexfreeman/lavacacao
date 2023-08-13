@@ -32,11 +32,16 @@ export default {
 
 <style lang="scss" scoped>
 .sku-btn {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   background-size: cover;
   background-position: center;
   cursor: pointer;
   border: 2px solid #ffffff;
+
+  @include display-after(md) {
+    width: 50px;
+    height: 50px;
+  }
 }
 </style>

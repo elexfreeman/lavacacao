@@ -46,5 +46,8 @@ export default {
   display: flex;
   gap: 5px;
   margin-top: 20px;
+  @include display-after(md) {
+    margin-top: 0px;
+  }
 }
 </style>

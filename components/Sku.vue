@@ -1,23 +1,21 @@
 <template>
   <div class="sku">
-    <div class="sku__title-mobile">{{ sku.title }}</div>
+    <div class="sku__title">{{ sku.title }}</div>
     <div class="sku__wraper">
       <div class="sku__left">
         <div class="sku__slider">
-          <client-only placeholder="Loading...">
-            <SkuSlider :imgList="sliderImgList" />
-            <!-- this component will only be rendered on client-side -->
-          </client-only>
+          <SkuSlider :imgList="sliderImgList" />
         </div>
       </div>
       <div class="sku__right">
-        <div class="sku__title">{{ sku.title }}</div>
         <SkuBtnList />
-        <div class="sku__description" v-html="description"></div>
         <ProductCompound :sku="sku" />
         <ProductAddData :sku="sku" />
-        <div id="sku-add-to-cart-btn"></div>
+        <ProductDescription :text="description" title="Описание" />
       </div>
+    </div>
+    <div class="sku-add-to-cart">
+      <AddToCartBtn :productId="product.id" :skuId="sku.id" />
     </div>
   </div>
 </template>
@@ -53,7 +51,7 @@ export default {
     description() {
       return this.sku.description
         ? this.sku.description
-        : this.product.attributes.common.description.replaceAll('\n','<br/>');
+        : this.product.attributes.common.description.replaceAll("\n", "<br/>");
     },
     sliderImgList() {
       let resp = [];
@@ -82,63 +80,28 @@ export default {
 
 <style lang="scss" scoped>
 .sku {
-  &__title-mobile {
-    width: 100%;
-    font-size: 20px;
-    font-weight: 100;
-    margin-bottom: 20px;
-    color: $--title-color;
-    text-align: center;
-
-    @include display-after(sm) {
-      display: none;
-    }
-  }
-
   &__wraper {
-    display: flex;
-    flex-direction: column;
-    @include display-after(sm) {
-      flex-direction: row;
-      gap: 40px;
-    }
-  }
-
-  &__left {
-    width: 100%;
-
-    @include display-after(sm) {
-      width: 30vw;
-    }
-  }
-
-  &__right {
-    width: 100%;
-
-    @include display-after(sm) {
-      width: 70vw;
+    grid-template-columns: 1fr 1fr;
+    @include display-after(md) {
+      display: grid;
+      gap: 10px;
     }
   }
 
   &__title {
     font-size: 20px;
-    font-weight: 100;
-    margin-bottom: 20px;
-    color: $--title-color;
-    display: none;
+    line-height: 26px;
+    text-align: center;
+    margin: 22px 0;
 
     @include display-after(sm) {
-      font-size: 30px;
-      display: block;
     }
   }
 
   &__description {
-    font-size: 13px;
     margin-top: 20px;
 
     @include display-after(sm) {
-      font-size: 14px;
     }
   }
 
@@ -157,6 +120,10 @@ export default {
     @include display-after(sm) {
       font-size: 12px;
     }
+  }
+
+  &__add-to-cart {
+    widows: 100%;
   }
 }
 </style>

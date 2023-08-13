@@ -6,9 +6,9 @@
 
 <style lang="scss" scoped>
 .product-sub-title {
-  font-size: 18px;
-  margin-bottom: 4px;
-  font-weight: 200;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 16px;
   color: $--title-color;
 
   @include display-after(sm) {

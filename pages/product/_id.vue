@@ -1,12 +1,9 @@
 <template>
-  <div>
+  <LvContainer>
     <Header />
-    <Containter>
-      <ProductBreadcrumbs />
-      <Product />
-    </Containter>
-    <Footer />
-  </div>
+    <ProductBreadcrumbs />
+    <Product />
+  </LvContainer>
 </template>
 
 <script>
@@ -14,15 +11,12 @@ import { API_URL } from "../../config";
 
 export default {
   name: "ProductPage",
-  async asyncData(data) {
-    const { params, $axios, store, $productUtil } = data;
+  layout: "main",
+  async asyncData({ params, $axios, store, $productUtil }) {
     const pageCommonData = (
       await $axios.$get(`${API_URL}/page-data-common?populate=deep`)
     ).data.attributes;
-    pageCommonData.aboutText = pageCommonData?.aboutText.replace(
-      /\n/g,
-      "<br />"
-    );
+
     store.dispatch("mainData/loadPageCommonData", pageCommonData);
 
     const product = (

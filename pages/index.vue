@@ -17,22 +17,6 @@ export default {
     const pageCommonData = (
       await $axios.$get(`${API_URL}/page-data-common?populate=deep`)
     ).data.attributes;
-    pageCommonData.aboutText = pageCommonData?.aboutText.replace(
-      /\n/g,
-      "<br />"
-    );
-
-    pageCommonData.topMenu = pageCommonData?.top_menus?.data?.map((item) => {
-      return {
-        caption: item.attributes.caption,
-        link: item.attributes.link,
-      };
-    });
-
-    if (!pageCommonData.topMenu) {
-      pageCommonData.topMenu = [];
-    }
-
     store.dispatch("mainData/loadPageCommonData", pageCommonData);
 
     const data = await $axios.$get(`${API_URL}/main-slider?populate=deep`);
