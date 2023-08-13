@@ -22,6 +22,17 @@ export const actions = {
     commit("setMainSliderItems", slideList);
   },
   async loadPageCommonData({ state, commit, dispatch, rootGetters }, data) {
+    data.aboutText = data?.aboutText.replace(/\n/g, "<br />");
+    data.topMenu = data?.top_menus?.data?.map((item) => {
+      return {
+        caption: item.attributes.caption,
+        link: item.attributes.link,
+      };
+    });
+
+    if (!data.topMenu) {
+      data.topMenu = [];
+    }
     commit("setPageCommonData", data);
   },
 };

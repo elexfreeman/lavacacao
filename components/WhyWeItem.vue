@@ -1,6 +1,6 @@
 <template>
   <div class="why-we-item">
-    <img class="why-we-item__img" :src="imgSrc" />
+    <div class="why-we-item__img" :style="imgStyle"></div>
     <div class="why-we-item__title">{{ title }}</div>
     <div class="why-we-item__description" v-html="description"></div>
   </div>
@@ -25,6 +25,9 @@ export default {
     description() {
       return this.item?.description?.replace(/\n/g, "<br />");
     },
+    imgStyle() {
+      return { backgroundImage: `url(${this.imgSrc})` };
+    },
 
     imgSrc() {
       return `${MEDIA_URL}${this.item?.image?.data?.attributes?.url}`;
@@ -34,20 +37,22 @@ export default {
 </script>
 <style lang="scss" scoped>
 .why-we-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 80px;
+  align-content: center;
   justify-content: center;
+
   margin-bottom: 0px;
+  height: 180px;
+  color: $--text-gray;
 
   @include display-after(sm) {
     margin-bottom: 0px;
   }
 
   &__title {
-    font-size: 15px;
-    font-weight: 100;
-    color: $--title-color;
+    color: $--text-gray;
     text-align: center;
     margin-bottom: 10px;
 
@@ -56,7 +61,9 @@ export default {
   }
 
   &__img {
-    width: 80px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
   &__description {

@@ -1,6 +1,6 @@
 <template>
   <div class="product-compound">
-    <ProductSubTitle> Состав: </ProductSubTitle>
+    <ProductSubTitle>Состав: </ProductSubTitle>
     {{ compoundText }}
   </div>
 </template>
@@ -52,7 +52,7 @@ export default {
 
 <style lang="scss" scoped>
 .product-compound {
-  font-size: 11px;
   margin-top: 20px;
+  @include description-font();
 }
 </style>

@@ -1,14 +1,14 @@
 <template>
   <div class="header-contacts">
-    <div class="header-contacts__field">
+    <div v-if="pageCommonData.phone" class="header-contacts__field">
       <img class="header-contacts__img" :src="phoneIco" />
       <span>{{ pageCommonData.phone }}</span>
     </div>
-    <div class="header-contacts__field">
+    <div v-if="pageCommonData.address" class="header-contacts__field">
       <img class="header-contacts__img" :src="locationIco" />
       <span>{{ pageCommonData.address }}</span>
     </div>
-    <div class="header-contacts__field">
+    <div v-if="pageCommonData.instagrammLink" class="header-contacts__field">
       <img class="header-contacts__img" :src="instaIco" />
       <span>{{ pageCommonData.instagrammLink }}</span>
     </div>
@@ -37,13 +37,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header-contacts {
-  display: none;
-  align-items: flex-end;
-  justify-content: right;
-  flex-direction: column;
+  display: flex;
+  gap: 26px;
 
   @include display-after(sm) {
-    display: flex;
   }
 
   &__field {
@@ -59,6 +56,7 @@ export default {
 
   &__img {
     width: 25px;
+    margin-right: 8px;
   }
 }
 </style>

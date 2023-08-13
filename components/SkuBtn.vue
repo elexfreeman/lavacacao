@@ -38,5 +38,10 @@ export default {
   background-position: center;
   cursor: pointer;
   border: 2px solid #ffffff;
+
+  @include display-after(lg) {
+    width: 100px;
+    height: 100px;
+  }
 }
 </style>

@@ -1,11 +1,9 @@
 <template>
   <div>
-    <Header />
     <MainSlider />
     <ProductList />
     <About />
-    <WhyWe />
-    <Footer />
+    <Galery />
   </div>
 </template>
 
@@ -14,14 +12,11 @@ import { API_URL, MEDIA_URL } from "../config";
 
 export default {
   name: "IndexPage",
+  layout: "main",
   async asyncData({ params, $axios, store }) {
     const pageCommonData = (
       await $axios.$get(`${API_URL}/page-data-common?populate=deep`)
     ).data.attributes;
-    pageCommonData.aboutText = pageCommonData?.aboutText.replace(
-      /\n/g,
-      "<br />"
-    );
     store.dispatch("mainData/loadPageCommonData", pageCommonData);
 
     const data = await $axios.$get(`${API_URL}/main-slider?populate=deep`);

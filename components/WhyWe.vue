@@ -1,12 +1,10 @@
 <template>
-  <Containter>
-    <div class="why-we">
-      <div class="why-we__title">{{ title }}</div>
-      <div class="why-we__wraper">
-        <WhyWeItem :item="item" v-for="(item, key) in itemList" :key="key" />
-      </div>
+  <div class="why-we">
+    <div class="why-we__title">{{ title }}</div>
+    <div class="why-we__wraper">
+      <WhyWeItem :item="item" v-for="(item, key) in itemList" :key="key" />
     </div>
-  </Containter>
+  </div>
 </template>
 
 <script>
@@ -47,6 +45,7 @@ export default {
 .why-we {
   width: 100%;
   margin-bottom: 20px;
+  color: $--text-gray;
 
   @include display-after(sm) {
     margin-bottom: 20px;
@@ -69,8 +68,7 @@ export default {
 
   &__title {
     @include title-font();
-    margin-top: 20px;
-    text-align: center;
+    color: $--text-gray;
   }
 }
 </style>

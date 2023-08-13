@@ -1,8 +1,8 @@
 // After changing, update also in globalSettings
 // Actual breakpoints (mobile first)
-$--screen-sm: 1020px;
-$--screen-md: 1440px;
-$--screen-lg: 1660px;
+$--screen-sm: 390px;
+$--screen-md: 820px;
+$--screen-lg: 1920px;
 // Grid breakpoints (sm, md, lg)
 $breakpoints: ($--screen-sm, $--screen-md, $--screen-lg);
 
@@ -44,12 +44,36 @@ $breakpoint-up-prefixes: ("xs", "sm", "md", "lg");
 }
 
 @mixin title-font() {
-  font-size: 20px;
-  font-weight: 100;
-  margin-bottom: 20px;
+  text-align: center;
+  font-size: 48px;
+  line-height: 50px;
+  font-weight: 400;
+  font-family: Hamiltone;
   color: $--title-color;
+  margin: 50px 0;
 
-  @include display-after(sm) {
-    font-size: 30px;
+  @include display-after(md) {
+    font-size: 52px;
+    margin: 70px 0;
+  }
+
+  @include display-after(lg) {
+    font-size: 80px;
+    margin: 70px 0;
+  }
+}
+
+@mixin description-font() {
+  font-size: 12px;
+  line-height: 18px;
+
+  @include display-after(md) {
+  font-size: 12px;
+  line-height: 18px;
+  }
+
+  @include display-after(lg) {
+  font-size: 16px;
+  line-height: 20px;
   }
 }

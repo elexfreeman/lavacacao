@@ -3,18 +3,50 @@
 // $--font-family-site: 'Marck Script';
 $--font-family-site: "Open Sans";
 
-$--title-color: #8b8b8b;
-$--link-color: #986a52;
+// lavacacao
+$--color-body: #413736;
+$--color-main1-font: #ffffff;
+$--color-main2-font: #ffffff;
+
+$--title-color: #ffffff;
+$--link-color: #ffffff;
+$--text-color: #878787;
+$--text-gray: #3c3c3c;
 $--footer-color: #faf9f5;
+$--color-border: #ababab;
+$--line-color: #FFFFFF;
+$--color-btn: #E8C47D;
 
 @import "./colors.scss";
 @import "./fonts.scss";
 @import "./mixins/mixins.scss";
 @import "./swiper.scss";
 
+@font-face {
+  font-family: Hamiltone;
+  src: url("~assets/hamiltoneg.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Ageo;
+  src: url("~assets/ageo.otf") format("opentype");
+}
+
 body {
   font-family: $--font-family-site;
   margin: 0;
+  background-color: $--color-body;
+  font-size: 12px;
+  line-height: 16px;
+  color: $--color-main1-font;
+
+  @include display-after(md) {
+    font-size: 12px;
+  }
+  @include display-after(lg) {
+    font-size: 24px;
+    line-height: 30px;
+  }
 }
 
 a {

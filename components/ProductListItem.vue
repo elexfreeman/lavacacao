@@ -34,28 +34,37 @@ export default {
 </script>
 <style scoped lang="scss">
 .product-list-item {
-  margin-top: 20px;
+  border: 1px solid $--text-color;
 
   @include display-after(sm) {
-    margin-top: 40px;
   }
 
   &__img {
     width: 100%;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1.3;
     background-size: cover;
   }
 
   &__title {
-    font-size: 13px;
+    font-size: 12px;
+    line-height: 16px;
     text-align: center;
     display: flex;
     justify-content: center;
-    color: #8b8b8b;
-    padding-top: 20px;
+    align-items: center;
+    color: $--text-color;
+    background: #ffffff;
+    height: 60px;
+    padding: 10px;
 
-    @include display-after(sm) {
-      font-size: 18px;
+    @include display-after(md) {
+      font-size: 12px;
+      height: 60px;
+    }
+    @include display-after(lg) {
+      font-size: 24px;
+      line-height: 30px;
+      height: 80px;
     }
   }
 
