@@ -14,17 +14,12 @@
 </template>
 
 <script>
-import ProductSubTitle from "./ProductSubTitle.vue";
-
 export default {
   name: "ProductAddData",
   data() {
     return {
       isOpen: false,
     };
-  },
-  components: {
-    ProductSubTitle,
   },
   props: {
     text: {

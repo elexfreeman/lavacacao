@@ -19,11 +19,8 @@ export default {
     ).data.attributes;
     store.dispatch("mainData/loadPageCommonData", pageCommonData);
 
-    const data = await $axios.$get(`${API_URL}/main-slider?populate=deep`);
-    const slideList = data.data?.attributes?.item?.map((item) => {
-      return `${MEDIA_URL}${item.image.data.attributes.url}`;
-    });
-    store.dispatch("mainData/loadMainSlider", slideList);
+    const sliderData = await $axios.$get(`${API_URL}/main-slider?populate=deep`);
+    store.dispatch("mainData/loadMainSlider", sliderData);
 
     const productList = (
       await $axios.$get(`${API_URL}/choco-candles?populate=deep`)

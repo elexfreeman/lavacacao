@@ -2,7 +2,7 @@
   <LvContainer>
     <Header />
     <ProductBreadcrumbs />
-    <Product />
+    <ProductMain />
   </LvContainer>
 </template>
 

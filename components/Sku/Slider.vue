@@ -72,6 +72,7 @@ export default {
     background-size: cover;
     background-position: center;
     border: 2px solid $--color-body;
+    cursor: pointer;
 
     @include display-after(lg) {
       width: 128px;

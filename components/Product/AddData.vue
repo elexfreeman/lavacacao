@@ -16,15 +16,9 @@
 
 <script>
 import { mapGetters } from "vuex";
-import ProductAddDataItem from "./ProductAddDataItem.vue";
-import ProductSubTitle from "./ProductSubTitle.vue";
 
 export default {
   name: "ProductAddData",
-  components: {
-    ProductAddDataItem,
-    ProductSubTitle,
-  },
   props: {
     sku: {
       type: Object,

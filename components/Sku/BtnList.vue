@@ -7,15 +7,11 @@
 </template>
 
 <script>
-import { MEDIA_URL } from "../config";
+import { MEDIA_URL } from "../../config";
 import { mapGetters, mapActions } from "vuex";
-import SkuBtn from "./SkuBtn.vue";
 
 export default {
   name: "SkuBtnList",
-  components: {
-    SkuBtn,
-  },
   computed: {
     ...mapGetters("product", ["product", "selectedSkuId"]),
     skuBtnImg() {
