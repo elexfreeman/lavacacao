@@ -41,6 +41,18 @@
   "WhyWeItem": {
     "description": "Auto imported from components/WhyWeItem.vue"
   },
+  "SkuBtn": {
+    "description": "Auto imported from components/Sku/Btn.vue"
+  },
+  "SkuBtnList": {
+    "description": "Auto imported from components/Sku/BtnList.vue"
+  },
+  "SkuMain": {
+    "description": "Auto imported from components/Sku/Main.vue"
+  },
+  "SkuSlider": {
+    "description": "Auto imported from components/Sku/Slider.vue"
+  },
   "ProductAddData": {
     "description": "Auto imported from components/Product/AddData.vue"
   },
@@ -67,17 +79,5 @@
   },
   "ProductSubTitle": {
     "description": "Auto imported from components/Product/SubTitle.vue"
-  },
-  "SkuBtn": {
-    "description": "Auto imported from components/Sku/Btn.vue"
-  },
-  "SkuBtnList": {
-    "description": "Auto imported from components/Sku/BtnList.vue"
-  },
-  "SkuMain": {
-    "description": "Auto imported from components/Sku/Main.vue"
-  },
-  "SkuSlider": {
-    "description": "Auto imported from components/Sku/Slider.vue"
   }
 }

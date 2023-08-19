@@ -4,12 +4,18 @@
       <LvContainer>
         <Header />
       </LvContainer>
-      <h1 class="header-float__title">
-        {{ pageCommonData.title }}
-      </h1>
+      <img
+        :alt="pageCommonData.title"
+        class="header-float__logo-title"
+        :src="logoTitle"
+      />
       <h2 class="header-float__description">
         {{ pageCommonData.description }}
       </h2>
+      <div class="header-float__location">
+        <img class="header-float__location-icon" :src="locationIco" />
+        <span>{{ pageCommonData.address }}</span>
+      </div>
     </div>
     <div v-swiper:mySwiper="options">
       <div class="swiper-wrapper">
@@ -53,6 +59,9 @@ export default {
     locationIco() {
       return `${MEDIA_URL}${this.pageCommonData?.locationIco?.data?.attributes?.url}`;
     },
+    logoTitle() {
+      return `${MEDIA_URL}${this.pageCommonData?.logoTitle?.data?.attributes?.url}`;
+    },
   },
 };
 </script>
@@ -74,6 +83,41 @@ export default {
 
   @include display-after(lg) {
     height: 1024px;
+  }
+
+  &__logo-title {
+    width: 258px;
+
+    display: block;
+    margin: 0 auto;
+    margin-top: 250px;
+
+    @include display-after(md) {
+      width: 416px;
+    }
+    @include display-after(lg) {
+      margin-top: 240px;
+      width: 680px;
+    }
+  }
+
+  &__location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include display-after(md) {
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+  &__location-icon {
+    width: 24px;
+
+    @include display-after(md) {
+      width: 32px;
+    }
   }
 
   &__title {
@@ -103,15 +147,15 @@ export default {
     text-align: center;
     font-weight: 200;
     font-family: Hamiltone;
-    margin-top: 50px;
+    margin-top: 20px;
 
     @include display-after(md) {
       font-size: 52px;
-      margin-top: 90px;
+      margin-top: 40px;
     }
     @include display-after(lg) {
       font-size: 80px;
-      margin-top: 120px;
+      margin-top: 50px;
     }
   }
 }
