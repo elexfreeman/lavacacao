@@ -12,7 +12,7 @@
       <HeaderContacts />
     </div>
 
-    <div class="header__mobile-menu">
+    <div class="header__item header__mobile-menu">
       <MobileMenu />
     </div>
   </div>
@@ -92,6 +92,7 @@ export default {
     @include display-after(md) {
       display: flex;
       justify-content: center;
+      width: 400px;
     }
 
     @include display-after(md) {
