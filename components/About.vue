@@ -59,7 +59,7 @@ export default {
 .about {
   color: $--text-gray;
   display: flex;
-  background-image: url("../assets/bg-mirible.jpg");
+  background: $--color-main2-font;
   background-size: cover;
 
   &__grid {
