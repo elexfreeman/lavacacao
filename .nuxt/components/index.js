@@ -1,30 +1,30 @@
-export const LvContainer = () => import('../../components/common/LvContainer.vue' /* webpackChunkName: "components/lv-container" */).then(c => wrapFunctional(c.default || c))
-export const About = () => import('../../components/About.vue' /* webpackChunkName: "components/about" */).then(c => wrapFunctional(c.default || c))
-export const AddToCartBtn = () => import('../../components/AddToCartBtn.vue' /* webpackChunkName: "components/add-to-cart-btn" */).then(c => wrapFunctional(c.default || c))
-export const Containter = () => import('../../components/Containter.vue' /* webpackChunkName: "components/containter" */).then(c => wrapFunctional(c.default || c))
-export const Footer = () => import('../../components/Footer.vue' /* webpackChunkName: "components/footer" */).then(c => wrapFunctional(c.default || c))
-export const Galery = () => import('../../components/Galery.vue' /* webpackChunkName: "components/galery" */).then(c => wrapFunctional(c.default || c))
-export const Header = () => import('../../components/Header.vue' /* webpackChunkName: "components/header" */).then(c => wrapFunctional(c.default || c))
-export const HeaderContacts = () => import('../../components/HeaderContacts.vue' /* webpackChunkName: "components/header-contacts" */).then(c => wrapFunctional(c.default || c))
-export const HeaderText = () => import('../../components/HeaderText.vue' /* webpackChunkName: "components/header-text" */).then(c => wrapFunctional(c.default || c))
-export const MainSlider = () => import('../../components/MainSlider.vue' /* webpackChunkName: "components/main-slider" */).then(c => wrapFunctional(c.default || c))
-export const Menu = () => import('../../components/Menu.vue' /* webpackChunkName: "components/menu" */).then(c => wrapFunctional(c.default || c))
-export const MobileMenu = () => import('../../components/MobileMenu.vue' /* webpackChunkName: "components/mobile-menu" */).then(c => wrapFunctional(c.default || c))
-export const WhyWe = () => import('../../components/WhyWe.vue' /* webpackChunkName: "components/why-we" */).then(c => wrapFunctional(c.default || c))
-export const WhyWeItem = () => import('../../components/WhyWeItem.vue' /* webpackChunkName: "components/why-we-item" */).then(c => wrapFunctional(c.default || c))
-export const ProductAddData = () => import('../../components/Product/AddData.vue' /* webpackChunkName: "components/product-add-data" */).then(c => wrapFunctional(c.default || c))
-export const ProductAddDataItem = () => import('../../components/Product/AddDataItem.vue' /* webpackChunkName: "components/product-add-data-item" */).then(c => wrapFunctional(c.default || c))
-export const ProductBreadcrumbs = () => import('../../components/Product/Breadcrumbs.vue' /* webpackChunkName: "components/product-breadcrumbs" */).then(c => wrapFunctional(c.default || c))
-export const ProductCompound = () => import('../../components/Product/Compound.vue' /* webpackChunkName: "components/product-compound" */).then(c => wrapFunctional(c.default || c))
-export const ProductDescription = () => import('../../components/Product/Description.vue' /* webpackChunkName: "components/product-description" */).then(c => wrapFunctional(c.default || c))
-export const ProductList = () => import('../../components/Product/List.vue' /* webpackChunkName: "components/product-list" */).then(c => wrapFunctional(c.default || c))
-export const ProductListItem = () => import('../../components/Product/ListItem.vue' /* webpackChunkName: "components/product-list-item" */).then(c => wrapFunctional(c.default || c))
-export const ProductMain = () => import('../../components/Product/Main.vue' /* webpackChunkName: "components/product-main" */).then(c => wrapFunctional(c.default || c))
-export const ProductSubTitle = () => import('../../components/Product/SubTitle.vue' /* webpackChunkName: "components/product-sub-title" */).then(c => wrapFunctional(c.default || c))
-export const SkuBtn = () => import('../../components/Sku/Btn.vue' /* webpackChunkName: "components/sku-btn" */).then(c => wrapFunctional(c.default || c))
-export const SkuBtnList = () => import('../../components/Sku/BtnList.vue' /* webpackChunkName: "components/sku-btn-list" */).then(c => wrapFunctional(c.default || c))
-export const SkuMain = () => import('../../components/Sku/Main.vue' /* webpackChunkName: "components/sku-main" */).then(c => wrapFunctional(c.default || c))
-export const SkuSlider = () => import('../../components/Sku/Slider.vue' /* webpackChunkName: "components/sku-slider" */).then(c => wrapFunctional(c.default || c))
+export { default as LvContainer } from '../../components/common/LvContainer.vue'
+export { default as About } from '../../components/About.vue'
+export { default as AddToCartBtn } from '../../components/AddToCartBtn.vue'
+export { default as Containter } from '../../components/Containter.vue'
+export { default as Footer } from '../../components/Footer.vue'
+export { default as Galery } from '../../components/Galery.vue'
+export { default as Header } from '../../components/Header.vue'
+export { default as HeaderContacts } from '../../components/HeaderContacts.vue'
+export { default as HeaderText } from '../../components/HeaderText.vue'
+export { default as MainSlider } from '../../components/MainSlider.vue'
+export { default as Menu } from '../../components/Menu.vue'
+export { default as MobileMenu } from '../../components/MobileMenu.vue'
+export { default as WhyWe } from '../../components/WhyWe.vue'
+export { default as WhyWeItem } from '../../components/WhyWeItem.vue'
+export { default as SkuBtn } from '../../components/Sku/Btn.vue'
+export { default as SkuBtnList } from '../../components/Sku/BtnList.vue'
+export { default as SkuMain } from '../../components/Sku/Main.vue'
+export { default as SkuSlider } from '../../components/Sku/Slider.vue'
+export { default as ProductAddData } from '../../components/Product/AddData.vue'
+export { default as ProductAddDataItem } from '../../components/Product/AddDataItem.vue'
+export { default as ProductBreadcrumbs } from '../../components/Product/Breadcrumbs.vue'
+export { default as ProductCompound } from '../../components/Product/Compound.vue'
+export { default as ProductDescription } from '../../components/Product/Description.vue'
+export { default as ProductList } from '../../components/Product/List.vue'
+export { default as ProductListItem } from '../../components/Product/ListItem.vue'
+export { default as ProductMain } from '../../components/Product/Main.vue'
+export { default as ProductSubTitle } from '../../components/Product/SubTitle.vue'
 
 // nuxt/nuxt.js#8607
 function wrapFunctional(options) {

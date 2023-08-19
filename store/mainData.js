@@ -1,3 +1,5 @@
+import { MEDIA_URL } from "../config";
+
 export const state = () => ({
   mainSliderItems: [],
   pageCommonData: {},
