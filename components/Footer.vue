@@ -91,6 +91,10 @@ export default {
       flex-direction: row;
       gap: 50px;
     }
+    @include display-after(md) {
+      flex-direction: row;
+      gap: 50px;
+    }
   }
 
   &__menu-item {
@@ -107,17 +111,33 @@ export default {
     padding-bottom: 10px;
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 4px;
+
+    @include display-after(md) {
+    }
   }
 
   &__img {
-    width: 30px;
+    width: 15px;
+
+    @include display-after(md) {
+      width: 20px;
+    }
+
+    @include display-after(lg) {
+      width: 30px;
+    }
   }
 
   &__contacts {
     @include display-after(md) {
       display: flex;
       justify-content: flex-end;
+      gap: 20px;
+    }
+
+    @include display-after(lg) {
       gap: 50px;
     }
   }
