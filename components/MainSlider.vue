@@ -30,7 +30,6 @@
           ></div>
         </div>
       </div>
-
       <div class="swiper-pagination swiper-pagination-bullets"></div>
     </div>
   </div>
@@ -69,7 +68,7 @@ export default {
 <style lang="scss" scoped>
 .header-float {
   position: absolute;
-  width: 100vw;
+  width: 100%;
   top: 0;
   left: 0;
   height: 100px;
@@ -187,8 +186,9 @@ export default {
     }
   }
 
-  .swiper-wraper {
+  .swiper-wrapper {
     //    position: absolute;
+    width: 100vw;
   }
 
   .swiper-slide {
