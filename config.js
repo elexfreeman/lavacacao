@@ -5,4 +5,4 @@ export const BREAKPOINTS = Object.freeze({
 });
 
 export const API_URL = `http://lavacacao.ru:1337/api`;
-export const MEDIA_URL = `http://lavacacao.ru:1337`;
+export const MEDIA_URL = `https://lavacacao.ru`;
