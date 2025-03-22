@@ -14,6 +14,7 @@ export default {
   name: "IndexPage",
   layout: "main",
   async asyncData({ params, $axios, store }) {
+    console.log(`${API_URL}/page-data-common?populate=deep`)
     const pageCommonData = (
       await $axios.$get(`${API_URL}/page-data-common?populate=deep`)
     ).data.attributes;

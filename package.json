@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/proxy": "^2.1.0",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
     "nuxt-start": "^2.18.1",

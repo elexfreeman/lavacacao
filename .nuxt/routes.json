@@ -2,15 +2,15 @@
   {
     "name": "product-id",
     "path": "/product/:id?",
-    "component": "/home/john/lavacacao/pages/product/_id.vue",
+    "component": "/home/john/projects/lavacacao/pages/product/_id.vue",
     "chunkName": "pages/product/_id",
-    "_name": "_7cc9b3fe"
+    "_name": "_6afa4523"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "/home/john/lavacacao/pages/index.vue",
+    "component": "/home/john/projects/lavacacao/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_1109bd36"
+    "_name": "_629963ca"
   }
 ]

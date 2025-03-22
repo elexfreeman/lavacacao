@@ -39,7 +39,11 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ["@nuxtjs/style-resources", "@nuxtjs/axios"],
+  modules: [
+    "@nuxtjs/style-resources",
+    "@nuxtjs/axios",
+     "@nuxtjs/proxy"
+  ],
   styleResources: {
     scss: ["./styles/style.scss"],
   },
@@ -51,4 +55,9 @@ export default {
     host: "0.0.0.0", // default: localhost,
     timing: false,
   },
+  proxy: {
+    '/api': {
+      target: 'http://lavacacao.ru:1337',
+     },
+  }
 };
