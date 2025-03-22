@@ -1,0 +1,203 @@
+$shops-special-breakpoint: 780px;
+
+.shops-content {
+  @include mq($until: $shops-special-breakpoint) {
+    padding-bottom: 50px;
+  }
+
+  &-row {
+    display: flex;
+    width: 100%;
+    position: relative;
+    padding-bottom: 100px;
+
+    .line{
+      @include size(calc(100% - 46px),1px);
+      @include position(absolute, null null 0 33px);
+      background-color: color(brand-gold);
+
+      @include mq($until: $shops-special-breakpoint) {
+        display: none;
+      }
+
+      & > .svg{
+        display: block;
+        @include position(absolute, 100% null null);
+
+        svg{
+          display: block;
+          fill: color(brand-gold);
+        }
+
+        &.span-double-square{
+          right: calc(100% - 1px);
+          transform: rotate(180deg) translateY(50%);
+        }
+        &.span-simple-square{
+          left: calc(100% - 1px);
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+
+    @include mq($from: $shops-special-breakpoint) {
+      &:not(:first-child){
+        padding-top: 100px;
+      }
+      &:last-child{
+        .line{
+          display: none;
+        }
+        // border-bottom: 1px solid color(brand-gold);
+      }
+    }
+
+    @include mq($until: $shops-special-breakpoint) {
+      flex-direction: column;
+      border: none;
+      padding-bottom: 0px;
+
+      &:first-child{
+        .shops-card:first-child{
+          padding-top: 0;
+        }
+      }
+
+      &:last-child{
+        .shops-card:last-child{
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  .shops-card{
+    // break-inside: avoid;
+    width: calc(33% - 54px);
+
+    @include mq($from: desktop) {
+      &:not(:last-child) {
+        margin-right: 80px;
+      }
+    }
+
+    @include mq($until: desktop) {
+      width: calc(33.33% - 20px);
+
+
+      @include mq($from: $shops-special-breakpoint) {
+        &:not(:last-child) {
+          margin-right: 30px;
+        }
+      }
+    }
+
+    @include mq($until: $shops-special-breakpoint) {
+      width: 100%;
+      max-width: 400px;
+      margin: 30px auto 0;
+      border-bottom: 1px solid color(brand-gold);
+      padding: 50px 0;
+    }
+
+    &-name{
+      font-size: rem(40px);
+      margin-bottom: 30px;
+      padding-top: 5px;
+      line-height: 1;
+    }
+
+    &-address{
+      @include font(helvetica,regular);
+      font-size: rem(13px);
+      color: color(brand-text);
+      line-height: 1.6;
+    }
+
+    // Tel + Opening
+    &-table{
+      margin-top: 15px;
+    }
+    &-tr{
+      padding: 12px 0 14px;
+      line-height: 1.3;
+      font-size: 0;
+
+      &:not(:last-child) {
+        @include border-dotted(0,100%);
+      }
+    }
+    &-label{
+      @include font(playfair,bold);
+      font-size: rem(10px);
+      text-transform: uppercase;
+      letter-spacing: rem(1px);
+      vertical-align: middle;
+      line-height: 1.3;
+
+      @include mq($from: desktop) {
+        display: inline-block;
+        width: calc(100% - 140px);
+      }
+    }
+    &-value{
+      @include font(helvetica,regular);
+
+      font-size: rem(13px);
+      color: color(brand-gold);
+      vertical-align: middle;
+      line-height: 1.2;
+
+      @include mq($from: desktop) {
+        display: inline-block;
+        width: 140px;
+      }
+
+      @include mq($until: desktop) {
+        float: right;
+      }
+    }
+
+    &-link{
+      @include font(playfair,bold);
+      display: block;
+      margin-top: 15px;
+
+      font-size: rem(10px);
+      text-transform: uppercase;
+      text-decoration: none;
+      color: color(brand-dark-gold);
+      letter-spacing: rem(1px);
+
+      .text{
+        vertical-align: middle;
+      }
+
+      .svg{
+        vertical-align: middle;
+        fill: color(brand-gold);
+        display: inline-block;
+
+        svg{
+          display: block;
+        }
+      }
+    }
+  }
+
+  @include mq($from: desktop) {
+    .shops-content-row .shops-card {
+      opacity: 0;
+      transition: opacity 1s $ease-out-quart;
+
+      &:nth-child(4n - 2) { transition-delay: 0.3s; }
+      &:nth-child(4n - 1) { transition-delay: 0.6s; }
+      &:nth-child(4n) { transition-delay: 0.9s; }
+    }
+
+    &.is-visible {
+      .shops-content-row .shops-card { opacity: 1; }
+    }
+  }
+}

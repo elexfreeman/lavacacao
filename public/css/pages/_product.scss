@@ -1,0 +1,17 @@
+article[name="product"] {
+  #home-flowers{
+    @include size(100%,2000px);
+    @include position(absolute, 0 null null 0);
+    z-index: 0;
+
+    @include mq($until: tablet) {
+      display: none;
+    }
+  }
+
+  overflow: visible;
+
+  @import 'modules/product/detail';
+  @import 'modules/product/content';
+  @import 'modules/product/more-products';
+}

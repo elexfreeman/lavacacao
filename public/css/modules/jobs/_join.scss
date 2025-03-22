@@ -1,0 +1,124 @@
+.jobs-join {
+  position: relative;
+  padding: 50px 0 120px;
+
+  @include mq($until: tablet) {
+    padding-bottom: 70px;
+  }
+
+  .center {
+    position: relative;
+    min-height: 370px;
+  }
+
+  @include mq($until: desktop) {
+    padding: 60px 0;
+
+    .center {
+      min-height: 0;
+    }
+  }
+
+  @include mq($until: tablet) {
+    padding-top: 40px;
+  }
+}
+
+.jobs-join-title {
+  @include font(playfair, bold);
+  // @include margin(null null null -100px);
+  font-size: rem(220px);
+  line-height: 0.67;
+  letter-spacing: ls(-40);
+  text-align: center;
+  color: white;
+  opacity: 0.2;
+  position: relative;
+  width: calc(100% + 200px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+
+  &::before,
+  &::after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &::before {
+    text-shadow: 0 3px 70px rgba(#746b52, 0.5);
+    z-index: -1;
+  }
+
+  &::after {
+    text-shadow: 0 3px 8px rgba(#746b52, 0.6);
+    z-index: -1;
+  }
+
+  @include mq($from: desktop) {
+    html[lang="fr"] & {
+      line-height: 0.75;
+    }
+
+
+    html[lang="nl"] & {
+      width: 1360px;
+    }
+
+
+    html[lang="en"] & {
+      width: 1024px;
+    }
+  }
+
+  @include mq($until: desktop) {
+    display: none;
+  }
+}
+
+.jobs-join-quote {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transform-origin: 50%;
+  transform: translate(0, -50%);
+
+  p {
+    @include font(fontin, bold);
+    font-size: rem(45px);
+    line-height: 1.2;
+    letter-spacing: ls(-40);
+    color: black;
+    margin-bottom: 50px;
+
+    em{
+      display: block;
+
+      @include font(playfair,regular-italic);
+      color: color(brand-gold);
+      font-size: rem(35px);
+      letter-spacing: 0.3px;
+    }
+
+    @include mq($until: tablet) {
+      font-size: rem(35px);
+    }
+  }
+
+  [type="button"]{
+    padding: 15px 30px;
+  }
+
+  @include mq($until: desktop) {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0;
+    transform: none;
+  }
+}

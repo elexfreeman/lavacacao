@@ -1,0 +1,178 @@
+/// Kennel Settings
+$base-url: '../assets/';
+$base-font-size: 16px;
+$base-line-height: 1.5;
+$modular-scale-ratio: $perfect-fourth;
+$modular-scale-base: ($base-font-size, 28px);
+
+
+/// Overrides Default Color Palette
+$default-colors: (
+  brand-gold      : #bf9950,
+  brand-dark-gold : #b5934d,
+  brand-text      : #565656,
+  brand-grey      : #c6c6c7,
+  white           : white,
+  black           : black,
+
+  link            : blue,
+  heading         : #222222,
+  smoke           : #f5f4f2,
+
+  social-twitter   : #04aceb,
+  social-facebook  : #3b5998,
+  social-linkedin  : #0085af,
+  social-youtube   : #cd201f,
+  social-instagram : #e12f67,
+
+  alert-valid     : green,
+  alert-warning   : orange,
+  alert-error     : red,
+);
+
+
+/// Grid System
+$gs-container: 980px;
+
+
+/// Font Stack Declaration
+$base-font-stack: (
+  // Sans-serif
+  helvetica: (
+    regular: (
+      family: (Helvetica, Arial, sans-serif),
+      weight: 400,
+      style: normal,
+      cap-height: 0.68
+    ),
+    regular-italic: (
+      family: (Helvetica, Arial, sans-serif),
+      weight: 400,
+      style: italic,
+      cap-height: 0.68
+    ),
+    bold: (
+      family: (Helvetica, Arial, sans-serif),
+      weight: 700,
+      style: normal,
+      cap-height: 0.68
+    ),
+    bold-italic: (
+      family: (Helvetica, Arial, sans-serif),
+      weight: 700,
+      style: italic,
+      cap-height: 0.68
+    )
+  ),
+
+  fontin: (
+    regular: (
+      family: (Fontin, Helvetica, Arial, sans-serif),
+      weight: 400,
+      style: normal,
+      cap-height: 0.68,
+      file: (
+        family: 'Fontin',
+        path: 'Fontin-Regular',
+        formats: (eot woff ttf svg)
+      )
+    ),
+    bold: (
+      family: (Fontin, Helvetica, Arial, sans-serif),
+      weight: 700,
+      style: normal,
+      cap-height: 0.68,
+      file: (
+        family: 'Fontin',
+        path: 'Fontin-Bold',
+        formats: (eot woff ttf svg)
+      )
+    ),
+  ),
+
+  // Serif
+  playfair: (
+    regular: (
+      family: (Playfair, Times, Georgia, serif),
+      weight: 400,
+      style: normal,
+      cap-height: 0.68,
+      file: (
+        family: 'Playfair',
+        path: 'PlayfairDisplay-Regular',
+        formats: (eot woff ttf svg)
+      )
+    ),
+    regular-italic: (
+      family: (Playfair, Times, Georgia, serif),
+      weight: 400,
+      style: italic,
+      cap-height: 0.68,
+      file: (
+        family: 'Playfair',
+        path: 'PlayfairDisplay-Italic',
+        formats: (eot woff ttf svg)
+      )
+    ),
+    bold: (
+      family: (Playfair, Times, Georgia, serif),
+      weight: 700,
+      style: normal,
+      cap-height: 0.68,
+      file: (
+        family: 'Playfair',
+        path: 'PlayfairDisplay-Bold',
+        formats: (eot woff ttf svg)
+      )
+    ),
+  ),
+
+  gtsectra: (
+    regular: (
+      family: (GTSectra, Georgia, serif),
+      weight: 400,
+      style: normal,
+      cap-height: 0.68,
+      file: (
+        family: 'GTSectra',
+        path: 'GTSectraDisplay-Regular',
+        formats: (eot woff ttf svg)
+      )
+    ),
+    medium: (
+      family: (GTSectra, Georgia, serif),
+      weight: 500,
+      style: normal,
+      cap-height: 0.68,
+      file: (
+        family: 'GTSectra',
+        path: 'GTSectraDisplay-Medium',
+        formats: (eot woff ttf svg)
+      )
+    ),
+    bold: (
+      family: (GTSectra, Georgia, serif),
+      weight: 700,
+      style: normal,
+      cap-height: 0.68,
+      file: (
+        family: 'GTSectra',
+        path: 'GTSectraDisplay-Bold',
+        formats: (eot woff ttf svg)
+      )
+    ),
+  ),
+);
+
+
+/// Responsive Settings
+$mq-responsive: true;
+$mq-breakpoints: (
+  mobile:           320px,
+  tablet:           740px,
+  desktop:          980px,
+  site-container:   1160px,
+  wide:             1300px
+);
+$mq-static-breakpoint: desktop;
+$mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);

@@ -1,0 +1,419 @@
+.home-carousel {
+  position: relative;
+  width: 100%;
+  height: 873px;
+  padding: 220px 0 0;
+  margin-top: 100px;
+
+  @include mq($until: desktop) {
+    padding: 150px 0;
+  }
+
+  @include mq($from: tablet, $until: 1025px) {
+    margin-top: 0;
+    padding: 250px 0;
+  }
+
+  @include mq($until: tablet) {
+    height: 700px;
+    padding: 50px 0;
+  }
+}
+
+.home-carousel-background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  &.css-animation {
+    opacity: 0;
+    transition: opacity 0s linear;
+  }
+
+  transition: opacity 1s $ease-out-quad;
+
+  canvas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: white;
+    transform-origin: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @include mq($until: 1025px) {
+    top: -72px;
+
+    &.home-carousel-background_desktop { display: none; }
+
+    &.home-carousel-background_mobile {
+      @include mq($from: tablet) {
+        .img-mobile { display: none; }
+        .img-tablet {
+          @include position(absolute, 0 -50px null null);
+          height: 100%;
+        }
+      }
+      @include mq($until: tablet) {
+        .img-tablet { display: none; }
+      }
+    }
+  }
+  @include mq($from: 1025px) {
+    &.home-carousel-background_mobile {
+      display: none;
+    }
+  }
+}
+
+.swiper-container {
+  overflow: visible;
+
+  &.swiper-no-swiping {
+    .home-carousel-image-1 {
+      @include mq($from: 540px, $until: tablet) {
+        transform: translate(-40%,400px)
+      }
+
+      @include mq($from: 400px, $until: 540px) {
+        transform: translate(-40%,300px)
+      }
+    }
+  }
+}
+
+.home-carousel-pagination {
+  @include position(absolute, 50% null null 20px);
+  transform: translateY(-50%);
+
+  span {
+    @include size(21px);
+    display: block;
+    background-color: rgba(color(black), 0);
+    position: relative;
+    opacity: 1;
+
+    &::before {
+      @include position(absolute, 50% 50% null null);
+      @include size(6px);
+      border-radius: 50%;
+      transform: translate(50%, -50%);
+      content: "";
+      background-color: color(black);
+      transition: background-color 0.5s $ease-out-quart;
+    }
+
+    &.swiper-pagination-bullet-active {
+      &::before {
+        background-color: color(brand-gold);
+      }
+    }
+  }
+
+  @include mq($until: tablet) {
+    top: 0;
+    transform: none;
+    box-shadow: 0 0 15px 15px rgba(255,255,255,0.8);
+    background-color: rgba(255,255,255,0.8);
+    left: 50%;
+    transform: translateX(-50%);
+
+    span {
+      display: inline-block;
+    }
+  }
+}
+
+.home-carousel-slide {
+  &.swiper-slide {
+    position: relative;
+    opacity: 0!important;
+    pointer-events: none;
+
+    &.swiper-slide-active {
+      opacity: 1!important;
+      pointer-events: auto;
+    }
+  }
+
+  @include mq($until: tablet) {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.home-carousel-picture {
+  @include position(absolute, 80px null null 300px);
+  max-width: 850px;
+
+  opacity: 0;
+  transition: all 0.5s 0.5s $ease-out-quad;
+
+  @include mq($until: site-container) {
+    max-width: calc(100% - 430px);
+    top: 113px;
+    left: 430px;
+  }
+
+  @include mq($from: tablet, $until: desktop) {
+    max-width: 100%;
+    max-height: 230px;
+    top: calc(100% + 40px);
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  @include mq($until: tablet) {
+    top: calc(100% + 30px);
+    left: auto;
+    right: 50%;
+    transform: translateX(50%);
+    max-width: 100%;
+  }
+
+  @include mq($from: 650px, $until: tablet) {
+    top: calc(100% + 20px);
+    max-width: 80%;
+  }
+}
+
+.home-carousel-content {
+  position: relative;
+  max-width: 360px;
+  z-index: 5;
+
+  box-shadow: 0 0 15px 15px rgba(255,255,255,0.6);
+  background-color: rgba(255,255,255,0.6);
+
+  @include mq($from: tablet, $until: site-container) {
+    margin-left: 30px;
+  }
+
+  @include mq($until: desktop) {
+    max-width: 100%;
+    display: inline-block;
+  }
+
+  @include mq($until: tablet) {
+    text-align: left;
+    box-shadow: 0 0 15px 15px rgba(255,255,255,0.8);
+    background-color: rgba(255,255,255,0.8);
+    min-width: 250px;
+    max-width: calc(100% - 60px);
+  }
+}
+
+.home-carousel-tag {
+  @include margin(null null 30px);
+  @include font(playfair, bold);
+  font-size: rem(9px);
+  line-height: 2;
+  letter-spacing: ls(400);
+  text-transform: uppercase;
+  color: rgba(black, 0.5);
+
+  opacity: 0;
+  transition: opacity 0.5s 0.1s $ease-out-quad;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 1px;
+    margin: 0 10px 3px -60px;
+    background-color: color(brand-gold);
+    vertical-align: middle;
+  }
+
+  @include mq($until: tablet) {
+    margin: 0 0 20px;
+    opacity: 1;
+
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.home-carousel-title {
+  @include font(fontin, bold);
+  font-size: 65px;
+  line-height: 1.1;
+  letter-spacing: ls(-60);
+  color: black;
+
+
+  opacity: 0;
+  transition: opacity 0.5s 0.3s $ease-out-quad;
+
+  em,
+  i{
+    @include font(playfair, regular-italic);
+    color: color(brand-gold);
+  }
+
+  @include mq($until: tablet) {
+    font-size: rem(45px);
+    opacity: 1;
+  }
+}
+
+.home-carousel-button {
+  margin: 45px 0 0;
+  opacity: 0;
+  transition: all 0.5s 0.5s $ease-out-quad;
+
+  @include mq($until: tablet) {
+    opacity: 1;
+
+    a {
+      width: auto;
+    }
+  }
+}
+
+.home-carousel-image-1 {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform-origin: 50%;
+  transform: translate(-250px, 310px);
+  z-index: 4;
+  pointer-events: none;
+
+  opacity: 0;
+  transition: opacity 0.7s 0.5s $ease-out-quad;
+
+  @include mq($from: wide) {
+    transform: translate(-180px, 310px);
+  }
+
+  @include  mq($from: desktop) {
+    z-index: 6;
+    top: -197px;
+    bottom: auot;
+  }
+
+  @include mq($until: desktop) {
+    width: 75%;
+    height: auto;
+  }
+
+  @include mq($until: tablet) {
+    width: 100%;
+    transform: translate(-40%, 250px);
+
+    &.is-ready {
+      opacity: 1;
+    }
+  }
+
+  @include mq($from: 635px, $until: tablet) {
+    transform: translate(-40%, 300px);
+  }
+}
+
+.home-carousel-image-2 {
+  position: absolute;
+  right: 50%;
+  // bottom: 0;
+  top: 120px;
+  transform-origin: 50%;
+  transform: translate(360px, 320px);
+  z-index: 3;
+
+  opacity: 0;
+  transition: opacity 0.7s 0.5s $ease-out-quad;
+
+  @include mq($until: desktop) {
+    display: none;
+  }
+
+  @include mq($from: wide) {
+    transform: translate(600px, 320px);
+  }
+
+  @include mq($until: tablet) {
+    opacity: 1;
+  }
+}
+
+.home-carousel-image-3 {
+  position: absolute;
+  right: 50%;
+  // bottom: 0;
+  top: 230px;
+  transform-origin: 50%;
+  transform: translate(390px, 200px);
+  z-index: 2;
+
+  opacity: 0;
+  transition: opacity 0.7s 0.5s $ease-out-quad;
+
+  @include mq($from: wide) {
+    transform: translate(630px, 200px);
+  }
+
+  @include mq($until: desktop) {
+    display: none;
+  }
+
+  @include mq($until: tablet) {
+    opacity: 1;
+  }
+}
+
+.home-carousel-image-4 {
+  position: absolute;
+  left: 50%;
+  // bottom: 0;
+  top: 88px;
+  transform-origin: 50%;
+  transform: translate(340px, 310px);
+  z-index: 1;
+
+  opacity: 0;
+  transition: opacity 0.7s 0.5s $ease-out-quad;
+
+  @include mq($from: wide) {
+    transform: translate(580px, 320px);
+  }
+
+  @include mq($until: desktop) {
+    display: none;
+  }
+
+  @include mq($until: tablet) {
+    opacity: 1;
+  }
+}
+
+.home-carousel-image-1,
+.home-carousel-image-2,
+.home-carousel-image-3,
+.home-carousel-image-4 {
+  &.is-ready {
+    transition: opacity 0.5s $ease-out-quart;
+  }
+  &.is-disactive {
+    pointer-events: none;
+    opacity: 0 !important;
+  }
+}
+
+.is-visible {
+  .home-carousel-tag,
+  .home-carousel-title,
+  .home-carousel-button,
+  .home-carousel-picture,
+  .home-carousel-image-1,
+  .home-carousel-image-2,
+  .home-carousel-image-3,
+  .home-carousel-image-4{
+    opacity: 1;
+  }
+}

@@ -1,0 +1,30 @@
+article[name="companies"] {
+
+  #home-flowers{
+    @include size(100%,1000px);
+    @include position(absolute,290px null null 0);
+    z-index: 1;
+    pointer-events: none;
+
+    @include mq($until: tablet) {
+      display: none;
+    }
+  }
+
+  @import 'modules/companies/hero';
+  @import 'modules/companies/intro';
+  @import 'modules/companies/content';
+
+  .section-contact{
+    &-title{
+      em{
+        display: block;
+      }
+    }
+  }
+
+
+  [layout="default"] {
+    overflow: visible;
+  }
+}

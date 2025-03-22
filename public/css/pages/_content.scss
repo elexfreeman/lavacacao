@@ -1,0 +1,15 @@
+article[name="content"] {
+  background-image: url('../assets/images/about/header.jpg');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+
+  .center:first-child{
+    padding-top: 230px;
+    padding-bottom: 100px;
+
+    @include mq($until: tablet) {
+      padding-top: 120px;
+      padding-bottom: 80px;
+    }
+  }
+}

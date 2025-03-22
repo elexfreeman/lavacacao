@@ -1,0 +1,102 @@
+.home-testimonials {
+  position: relative;
+  padding: 50px 0 70px;
+
+  .center {
+    position: relative;
+    padding-bottom: 40px;
+  }
+
+  @include mq($until: desktop) {
+    padding: 60px 0;
+  }
+
+  @include mq($until: tablet) {
+    padding: 40px 0;
+  }
+}
+
+.home-testimonials-title {
+  @include font(playfair, bold);
+  font-size: rem(200px);
+  line-height: 0.73;
+  letter-spacing: ls(-40);
+  text-align: center;
+  color: white;
+  opacity: 0.2;
+  position: relative;
+  margin: 0 auto;
+  max-width: 1024px;
+
+  @include mq($from: desktop) {
+    html[lang="en"] & {
+      max-width: none;
+      width: 1650px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &::before,
+  &::after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &::before {
+    text-shadow: 0 3px 70px rgba(#746b52, 0.5);
+    z-index: -1;
+  }
+
+  &::after {
+    text-shadow: 0 3px 8px rgba(#746b52, 0.6);
+    z-index: -1;
+  }
+
+  @include mq($until: desktop) {
+    display: none;
+  }
+}
+
+.home-testimonials-quote {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  transform-origin: 50%;
+  transform: translate(0, -50%);
+
+  p {
+    @include font(fontin, bold);
+    font-size: rem(45px);
+    line-height: 1.2;
+    letter-spacing: ls(-40);
+    color: black;
+
+    @include mq($until: tablet) {
+      font-size: rem(35px);
+    }
+  }
+
+  cite {
+    @include margin(8px null null);
+    @include font(playfair, regular-italic);
+    font-size: rem(19px);
+    line-height: 1.4;
+    color: color(brand-gold);
+    display: block;
+  }
+
+  @include mq($until: desktop) {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0;
+    transform: none;
+  }
+}
