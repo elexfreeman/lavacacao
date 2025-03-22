@@ -1,0 +1,145 @@
+article[name="news"]{
+  background-image: url('../assets/images/home/mary-illustration.png');
+  background-size: auto 873px;
+  background-position: 50% 100px;
+  background-repeat: no-repeat;
+
+  .center {
+    position: relative;
+    z-index: 2;
+  }
+
+  #home-flowers{
+    @include size(100%,1200px);
+    @include position(absolute,820px null null 0);
+    z-index: 1;
+
+    @include mq($until: tablet) {
+      display: none;
+    }
+  }
+
+  .news{
+    @include clearfix();
+    padding-bottom: 100px;
+
+    .center:first-child{
+      padding-top: 230px;
+
+      @include mq($until: tablet) {
+        padding-top: 120px;
+      }
+    }
+
+    &-date{
+      display: block;
+      margin-top: 20px;
+
+      @include font(playfair,bold);
+      font-size: rem(9px);
+      text-align: center;
+      text-transform: uppercase;
+      color: rgba(color(black),0.5);
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+
+    &-img{
+      @include size(100%,auto);
+      box-shadow: ps-shadow(30deg,36px,2%,43px,rgba(#746b52,0.36));
+      margin: 85px auto 55px;
+      position: relative;
+
+      .svg{
+        @include position(absolute,-45px null null calc(50% - 1px));
+        fill: color(brand-gold);
+        height: 65px;
+        overflow: hidden;
+      }
+
+      img{
+        display: block;
+        width: 100%;
+      }
+
+      &:after{
+        @include size(calc(100% - 12px));
+        @include position(absolute,6px null null 6px);
+        border: 1px solid color(brand-gold);
+        display: block;
+        content: '';
+      }
+    }
+
+    &-pagination{
+      @include clearfix();
+      @include size(100%,92px);
+      @include border-dotted(0,0);
+      margin-top: 60px;
+      padding-top: 50px;
+      position: relative;
+
+      text-align: center;
+
+      &-link{
+        @include padding(15px 0);
+        @include position(absolute,51px null null);
+
+        @include font(playfair,bold);
+        font-size: rem(10px);
+        color: color(black);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: ls(250);
+        line-height: 1;
+
+        .svg{
+          @include position(absolute,calc(50% - 12px) null null);
+        }
+      }
+
+      &-link-prev{
+        padding-left: 15px;
+        left: 0;
+
+        .svg{ left: 0; }
+      }
+
+      &-link-next{
+        padding-right: 15px;
+        right: 0;
+
+        .svg{ right: 0; }
+      }
+
+      .pagination-button{ margin: 0 auto; }
+
+      @include mq($until: tablet) {
+        height: auto;
+
+        &-inner{
+          @include clearfix();
+        }
+        .pagination-button + .news-pagination-inner{
+          margin-top: 40px;
+        }
+
+        .news-pagination-link{
+          position: relative;
+          top: auto;
+        }
+        .news-pagination-link-prev{
+          float: left;
+        }
+        .news-pagination-link-next{
+          float: right;
+        }
+
+        .pagination-button{
+          display: inline-block;
+          width: auto;
+        }
+      }
+    }
+  }
+}

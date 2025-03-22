@@ -1,0 +1,61 @@
+article[name="shops"] {
+  #home-flowers{
+    @include size(100%,710px);
+    @include position(absolute,0 null null 0);
+    z-index: 1;
+
+    @include mq($until: tablet) {
+      display: none;
+    }
+  }
+
+  .simple-hero{
+    height: 1072px;
+    margin-bottom: -400px;
+    position: relative;
+
+    &:before {
+      @include size(100%);
+      @include position(absolute, 0);
+      background: url('../assets/images/shops/header.jpg');
+      background-size: auto 100%;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      content: '';
+      z-index: -1;
+    }
+
+    @include mq($until: tablet) {
+      height: 650px;
+      margin-bottom: -320px;
+    }
+
+    .center{
+      @include mq($from: tablet) {
+        padding-top: 275px;
+      }
+    }
+
+    // Animations
+    @include mq($from: desktop) {
+      &:before {
+        opacity: 0;
+        transition: opacity 1s $ease-out-quart;
+      }
+      
+      h1 {
+        opacity: 0;
+        transition: opacity 1s $ease-out-quart;
+      }
+
+      h1 { transition-delay: 0.3s; }
+
+      &.is-visible {
+        &:before,
+        h1 { opacity: 1; }
+      }
+    }
+  }
+
+  @import 'modules/shops/content';
+}

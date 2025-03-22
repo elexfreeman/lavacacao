@@ -1,0 +1,114 @@
+article[name="contact"]{
+  #home-flowers{
+    @include size(100%,800px);
+    @include position(absolute,0 null null 0);
+    z-index: 0;
+
+    @include mq($until: tablet) {
+      display: none;
+    }
+  }
+  .contact-hero {
+    @include size(100%, 800px);
+    background-image: url('../assets/images/contact/hero.jpg');
+    background-size: auto 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    margin-bottom: -245px;
+    box-shadow: inset 0px 0px 300px 100px rgba(255,255,255,1);
+
+    @include mq($until: tablet) {
+      height: 500px;
+      margin-bottom: -180px;
+    }
+
+    .center{
+      @include padding(250px null null);
+      text-align: center;
+      position: relative;
+
+      @include mq($until: tablet) {
+        padding-top: 140px;
+      }
+    }
+
+    h1{
+      @include font(fontin,bold);
+      font-size: rem(65px);
+      line-height: 1;
+      letter-spacing: rem(-3px);
+
+      em{
+        @include font(playfair,regular-italic);
+        font-size: rem(60px);
+        color: color(brand-gold);
+        display: block;
+        letter-spacing: normal;
+      }
+
+      @include mq($until: tablet) {
+        font-size: rem(35px);
+
+        em{
+          margin-top: 5px;
+          font-size: rem(35px);
+        }
+      }
+    }
+
+    img{
+      @include size(113%, auto);
+      display: inline-block;
+      margin-top: 90px;
+      margin-left: -3%;
+
+      @include mq($until: tablet) {
+        @include size(150px, auto);
+        margin-top: 40px;
+      }
+    }
+
+    .svg{
+      @include position(absolute, calc(100% + 65px) null null calc(50% - 8.5px));
+      display: block;
+
+      svg{
+        display: block;
+        fill: color(brand-gold);
+      }
+    }
+  }
+
+  .section-contact {
+    position: relative;
+    z-index: 1;
+  }
+
+  .contact-map{
+    padding-bottom: 120px;
+
+    .map-container{
+      @include aspect-ratio(1160,560);
+      width: 100%;
+      display: block;
+      position: relative;
+      box-shadow: ps-shadow(90deg, 0, 0, 80px, rgba(#746b52,0.35));
+
+      /* remove logo, term of use, etc... of g-map */
+      a[href^="http://maps.google.com/maps"]{display:none !important}
+      a[href^="https://maps.google.com/maps"]{display:none !important}
+      .gmnoprint a, .gmnoprint span, .gm-style-cc { display:none; }
+      .gmnoprint div { background:none !important; }
+
+      &:after{
+        @include size(calc(100% - 12px));
+        @include position(absolute,6px null null 6px);
+        display: block;
+        content: '';
+        border: 1px solid color(brand-gold);
+        z-index: 1;
+      }
+    }
+  }
+}

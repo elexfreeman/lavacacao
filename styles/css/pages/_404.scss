@@ -1,0 +1,48 @@
+article[name="error-404"]{
+  @include size(100%, 770px);
+  background-image: url('../assets/images/about/header.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
+  position: relative;
+  box-shadow: inset 0px 0px 300px 100px rgba(255,255,255,1);
+
+  @include mq($until: tablet) {
+    height: 500px;
+  }
+
+  .center{
+    @include padding(250px null null);
+    text-align: center;
+    position: relative;
+
+    @include mq($until: tablet) {
+      padding-top: 140px;
+    }
+  }
+
+  h1{
+    margin-bottom: 50px;
+
+    @include font(fontin,bold);
+    font-size: rem(65px);
+    line-height: 1;
+    letter-spacing: rem(-3px);
+
+    em{
+      @include font(playfair,regular-italic);
+      font-size: rem(60px);
+      color: color(brand-gold);
+      display: block;
+      letter-spacing: normal;
+    }
+
+    @include mq($until: tablet) {
+      font-size: rem(35px);
+
+      em{
+        margin-top: 5px;
+        font-size: rem(35px);
+      }
+    }
+  }
+}

@@ -1,0 +1,185 @@
+// -----------------------------------------------------------------------------
+// Very basic styles.
+// -----------------------------------------------------------------------------
+
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
+}
+
+body {
+  @include size(100%, auto);
+  overflow-x: hidden;
+  overflow-y: visible;
+
+  &.is-menu-open,
+  .is-cart-open &{
+    @include size(100%);
+    overflow: hidden!important;
+    position: fixed;
+  }
+}
+
+.site-container {
+  @include size(100%, auto);
+  position: relative;
+}
+
+.site-page{
+  @include size(100%, auto);
+
+  @include mq($until: desktop) {
+    overflow: hidden;
+  }
+}
+
+.center {
+  max-width: 1160px;
+  margin: 0 auto;
+
+  &.center_narrow{
+    max-width: 960px;
+  }
+
+  @include mq($until: wide) {
+    &:not(.center_narrow){
+      padding: 0 30px;
+    }
+  }
+
+  @include mq($until: tablet) {
+    padding: 0 20px;
+  }
+}
+
+.select-overlay{
+  // @include position(fixed,0);
+  @include size(100%);
+
+  opacity: 0;
+  pointer-events: none;
+
+  &.is-active{
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+[gold] {
+  width: 100%;
+  .normal {
+    fill: #be9f56;
+    width: 100%;
+    height: 100%;
+  }
+  .overlay {
+    opacity: .6;
+    fill: url('#gradient');
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+  }
+}
+
+canvas {
+  touch-action: auto !important;
+}
+
+.u-desktop-hidden {
+  @include mq($from: tablet) {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+
+    &--focusable {
+      &:active,
+      &:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+      }
+    }
+  }
+}
+
+.cc-grower {
+  // @include position(fixed, null 0 0);
+  z-index: 1000;
+  background-color: color(white);
+  overflow: hidden;
+
+   &::after {
+      //@include position(absolute, 0px 0 null);
+      @include size(100%, 1px);
+      background-color: color(brand-gold);
+      content: "";
+
+      @include mq($until: tablet) {
+      }
+  }
+  .cc-window {
+    @include padding(20px 30px);
+    display: flex;
+    justify-content: space-between;
+
+    @include mq($until: tablet) {
+      flex-direction: column;
+
+      .cc-message {
+        margin-bottom: 15px;
+        line-height: 1.5;
+      }
+    }
+
+    a {
+      color: color(brand-gold);
+      text-decoration: none;
+      transition: color 0.4s $ease-out-quart;
+
+      &:hover {
+        color: color(black);
+      }
+
+      &.cc-dismiss {
+        @include padding(5px 10px);
+        @include font(playfair, bold);
+        font-size: rem(12px);
+        border: 1px solid color(brand-gold);
+        color: black;
+        line-height: 1;
+        text-transform: uppercase;
+
+        &:hover {
+          color: color(brand-gold);
+        }
+      }
+    }
+  }
+}

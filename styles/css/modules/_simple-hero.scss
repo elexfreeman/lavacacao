@@ -1,0 +1,120 @@
+.simple-hero{
+  @include size(100%, 960px);
+
+  @include mq($until: tablet) {
+    @include size(100%, 450px);
+  }
+
+  .center{
+    padding-top: 140px;
+    text-align: center;
+
+    @include mq($from: tablet) {
+      padding-top: 230px;
+    }
+
+    h1{
+      @include font(fontin,bold);
+      font-size: rem(65px);
+
+      em,
+      strong{
+        @include font(playfair, regular-italic);
+        color: color(brand-gold);
+        display: block;
+        margin-top: 20px;
+        line-height: 1;
+      }
+
+      @include mq($until: tablet) {
+        font-size: rem(35px);
+
+        strong{
+          margin-top: 5px;
+        }
+      }
+    }
+
+    // Custom Select
+
+    .custom-select{
+      @include size(160px,auto);
+      padding-top: 40px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+
+      .label,
+      .options{
+        @include font(playfair,bold);
+        font-size: rem(10px);
+        text-transform: uppercase;
+        text-align: left;
+        line-height: 1;
+        letter-spacing: 1px;
+      }
+
+      .label{
+        padding: 15px 0;
+        display: block;
+        position: relative;
+        border-bottom: 1px solid color(black);
+
+        *{
+          pointer-events: none;
+        }
+
+        .svg{
+          @include position(absolute, null 0 16px null);
+        }
+
+        &:hover{
+          cursor: pointer;
+        }
+      }
+
+      .options-list{
+        @include position(absolute,calc(100% - 1px) null null 0);
+        width: 100%;
+        padding: 0 10px;
+        background: color(white);
+        z-index: 1;
+        border: 1px solid color(brand-gold);
+      }
+
+      .options-list{
+        display: none;
+
+        &.is-active{
+          display: block;
+        }
+      }
+
+      .options{
+        padding: 10px 0;
+        transition: all 0.3s $ease-out-quad;
+
+        &:first-child{ padding-top: 15px; }
+        &:last-child{ padding-bottom: 15px; }
+
+        &.is-active{ display: none; }
+
+        &:hover{
+          cursor: pointer;
+          color: color(brand-gold);
+        }
+      }
+
+      select{
+        display: none;
+      }
+
+      &.is-filters-open{
+        .options-container{
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+}

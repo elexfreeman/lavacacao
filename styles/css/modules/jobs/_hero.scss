@@ -1,0 +1,58 @@
+.jobs-hero{
+  @include size(100%, 680px);
+  background-image: url('../assets/images/jobs/hero.jpg');
+  background-size: auto 100%;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-bottom: -100px;
+
+  @include mq($until: tablet) {
+    height: 500px;
+  }
+
+  .center{
+    @include padding(250px null null);
+    text-align: center;
+
+    @include mq($until: tablet) {
+      padding-top: 140px;
+    }
+
+    .svg{
+      display: block;
+      text-align: center;
+      margin-top: 55px;
+
+      svg{
+        display: inline-block;
+        fill: color(brand-gold);
+      }
+    }
+  }
+
+  h1{
+    @include font(fontin,bold);
+    font-size: rem(65px);
+    line-height: 1;
+    letter-spacing: rem(-3px);
+
+    em{
+      @include font(playfair,regular-italic);
+      font-size: rem(60px);
+      color: color(brand-gold);
+      display: block;
+      letter-spacing: normal;
+    }
+
+    @include mq($until: tablet) {
+      font-size: rem(35px);
+
+      em{
+        margin-top: 5px;
+        font-size: rem(35px);
+      }
+    }
+  }
+
+}

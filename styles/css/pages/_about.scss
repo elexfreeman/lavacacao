@@ -1,0 +1,16 @@
+article[name="about"] {
+  #home-flowers{
+    @include size(100%,850px);
+    @include position(absolute,0 null null 0);
+    z-index: 1;
+
+    @include mq($until: tablet) {
+      display: none;
+    }
+  }
+
+  @import 'modules/about/hero';
+  @import 'modules/about/content';
+  @import 'modules/about/content-bg';
+  @import 'modules/about/testimonials';
+}

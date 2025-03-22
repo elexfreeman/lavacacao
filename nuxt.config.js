@@ -45,7 +45,7 @@ export default {
      "@nuxtjs/proxy"
   ],
   styleResources: {
-    scss: ["./styles/style.scss"],
+    scss: ["./styles/css/main.scss"],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

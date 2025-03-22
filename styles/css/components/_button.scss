@@ -1,0 +1,195 @@
+[type="button"],
+[type="submit"] {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  border: 0 none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+  text-decoration: none;
+  overflow: visible;
+
+  &[layout="default"] {
+    @include padding(15px 50px);
+
+    @include font(playfair, bold);
+    font-size: rem(10px);
+    line-height: 1;
+    letter-spacing: ls(250);
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+
+    transition: all 0.4s $ease-out-quad;
+
+    .border{
+      position: absolute;
+      border-width: 1px;
+      border-style: solid;
+      border-color: color(brand-gold);
+
+      pointer-events: none;
+
+      &.border-one {
+        top: -4px;
+        bottom: -4px;
+        right: 2px;
+        left: 2px;
+      }
+
+      &.border-two {
+        top: -1px;
+        bottom: -1px;
+        right: -1px;
+        left: -1px;
+      }
+
+      .line {
+        position: absolute;
+
+        &::before,
+        &::after{
+          display: block;
+          content: '';
+          background: color(black);
+          position: absolute;
+
+          transition: all 0.4s $ease-out-quad;
+          // transform: scale(0,0);
+        }
+
+        &:before{
+          top: 0;
+          left: 0;
+        }
+        &:after{
+          bottom: 0;
+          right: 0;
+        }
+
+        &.line-horizontal {
+          @include size(calc(100% + 2px),1px);
+          left: -1px;
+
+          &:before{
+            @include size(50%,1px);
+            transform-origin: 0 50%;
+            transform: scale(0,1);
+          }
+          &:after{
+            @include size(50%,1px);
+            transform-origin: 100% 50%;
+            transform: scale(0,1);
+          }
+        }
+
+        &.line-vertical {
+          @include size(1px,calc(100% + 2px));
+          top: -1px;
+
+          &:before{
+            @include size(1px,50%);
+            transform-origin: 50% 0;
+            transform: scale(1,0);
+          }
+          &:after{
+            @include size(1px,50%);
+            transform-origin: 50% 100%;
+            transform: scale(1,0);
+          }
+        }
+
+        &.line-top{ top: -1px; }
+        &.line-bottom{ bottom: -1px; }
+        &.line-left{ left: -1px; }
+        &.line-right{ right: -1px; }
+      }
+    }
+
+    @include mq($until: tablet) {
+      display: block;
+      width: 100%;
+    }
+
+    &.out-of-stock:hover{ cursor: default; }
+
+    &:not(.out-of-stock):hover{
+
+      .border{
+        .line {
+          &:before,
+          &:after{
+            transform: scale(1,1);
+          }
+        }
+      }
+    }
+  }
+
+  &[layout="transparent"] {
+    @include padding(null null 10px);
+    @include font(playfair, bold);
+    font-size: rem(10px);
+    line-height: 1;
+    letter-spacing: ls(250);
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+    // border-bottom-width: 3px;
+    // border-bottom-style: double;
+    // border-bottom-color: color(brand-gold);
+    position: relative;
+
+    .line-hover{
+      @include position(0);
+      @include size(100%);
+      pointer-events: none;
+      display: block;
+    }
+
+    &::before,
+    &::after,
+    & .line-hover::before,
+    & .line-hover::after{
+      @include size(100%,1px);
+      position: absolute;
+      left: 0;
+      display: block;
+      content: "";
+      background-color: color(brand-gold);
+      transform-origin: 0 50%;
+    }
+
+    & .line-hover::before,
+    & .line-hover::after{
+      transform: scale(0);
+      background-color: color(black);
+      z-index: 1;
+    }
+
+    &:before,
+    & .line-hover:before{
+      top: calc(100%);
+      transition: all 0.4s 0.2s $ease-out-quad;
+    }
+
+    &:after,
+    & .line-hover:after{
+      top: calc(100% + 3px);
+      transition: all 0.4s $ease-out-quad;
+    }
+
+    &:hover{
+      .line-hover:before{
+        transform: scaleX(1);
+        transition: all 0.4s $ease-out-quad;
+      }
+      .line-hover:after{
+        transform: scaleX(1);
+        transition: all 0.4s 0.2s $ease-out-quad;
+      }
+    }
+  }
+}

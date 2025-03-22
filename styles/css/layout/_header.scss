@@ -1,0 +1,305 @@
+$menu-break-point: 1025px;
+
+.site-header {
+  @include size(100%,auto);
+  @include position(absolute,0 null null 0);
+  z-index: 10;
+
+  @include mq($from: $menu-break-point) {
+    overflow: hidden;
+  }
+
+  @include mq($until: $menu-break-point) {
+    @include padding(20px null);
+  }
+
+  .site-title {
+    position: relative;
+    z-index: 11;
+    display: inline-block;
+    vertical-align: top;
+
+    @include mq($from: $menu-break-point) {
+      display: none;
+    }
+
+    a {
+      display: block;
+      line-height: 1;
+      height: 30px;
+    }
+
+    .logo {
+      display: block;
+      height: 30px;
+    }
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .center {
+    position: relative;
+
+    @include mq($from: $menu-break-point) {
+      @include padding(50px 0 null);
+    }
+  }
+
+  .site-lang {
+    @include mq($from: $menu-break-point, $until: site-container) {
+      right: 30px;
+    }
+
+    @include mq($from: $menu-break-point) {
+      @include position(absolute,20px 0 null null);
+    }
+
+    @include mq($until: $menu-break-point) {
+      right: auto;
+    }
+
+    button {
+      @include padding(12px 14px 10px);
+      @include font(gtsectra, bold);
+      border-radius: 7px;
+      background-color: color(white);
+      border: 1px solid color(brand-gold);
+
+      color: color(brand-gold);
+      line-height: 1;
+      font-size: rem(11px);
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+
+      &:before {
+        @include size(calc(100% - 4px));
+        @include position(absolute,2px 2px null null);
+        border-radius: 5px;
+        pointer-events: none;
+        content: '';
+        display: block;
+        border: 1px solid color(brand-gold);
+      }
+
+      &::after {
+        display: none;
+      }
+
+      .svg {
+        fill: color(brand-gold);
+        transition: all 0.4s $ease-out-quad;
+      }
+
+      &:hover {
+        &::before {
+          top: 2px !important;
+          right: 2px !important;
+          left: auto !important;
+        }
+      }
+    }
+
+    .langs {
+      @include size(100%, auto);
+      @include position(absolute, calc(100% - 7px) null null 0);
+      @include padding(5px null null null);
+      background: color(white);
+      border: 1px solid color(brand-gold);
+      border-top: 0;
+      border-radius: 0 0 7px 7px;
+      overflow: hidden;
+
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s $ease-out-quad;
+
+      &:before {
+        content: '';
+        display: block;
+        @include size(calc(100% - 4px), calc(100% - 2px));
+        @include position(absolute,0 2px null null);
+        border-radius: 0 0 5px 5px;
+        border: 1px solid color(brand-gold);
+        border-top: 0;
+        pointer-events: none;
+      }
+
+      @include mq($until: $menu-break-point) {
+        border: 0 none;
+        opacity: 1;
+        pointer-events: auto;
+
+        &:before {
+          content: none;
+        }
+      }
+
+      a{
+        @include font(gtsectra, bold);
+        @include padding(12px 12px);
+        @include margin(null 2px);
+        display: block;
+
+        color: color(brand-gold);
+        line-height: 1;
+        font-size: rem(11px);
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: center;
+        letter-spacing: 0.9px;
+
+        transition: all 0.3s $ease-out-quad;
+
+        &:hover{
+          background: color(brand-gold);
+          color: color(white);
+        }
+      }
+
+      li {
+        @include mq($until: $menu-break-point) {
+          display: inline-block;
+        }
+      }
+
+      li:last-child a{
+        margin-bottom: 2px;
+        border-radius: 0 0 5px 5px;
+
+        @include mq($until: $menu-break-point) {
+          margin-bottom: 0;
+          border-radius: 0;
+        }
+      }
+    }
+
+    @include mq($from: $menu-break-point) {
+      &:hover{
+        button{
+          .svg{ transform: rotate(180deg); }
+        }
+
+        .langs{
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+
+    @include mq($until: $menu-break-point) {
+      .is-langs-open & {
+        button {
+          .svg{ transform: rotate(180deg); }
+        }
+
+        .langs {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+
+  @include mq($until: $menu-break-point) {
+    .mobile-menu{
+      @include position(fixed, 0);
+      @include size(100vw,100vh);
+      padding-top: 70px;
+      background: color(white);
+      z-index: 10;
+
+      opacity: 0;
+      pointer-events: none;
+
+      transition: all 0.5s $ease-out-quad;
+
+      .is-menu-open & {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    .burger {
+      @include size(32px, 24px);
+      @include position(absolute,calc(50% - 12px) 20px null null);
+      z-index: 11;
+      display: block;
+
+      appearance: none;
+      outline: none;
+      background: none;
+      border: none;
+      padding: 0;
+
+      .line {
+        @include size(100%, 2px);
+        @include position(absolute, null null null 0);
+        background: color(brand-gold);
+        border-radius: 2px;
+        transition: all 0.5s $ease-out-quad;
+
+        &.line-1 {
+          top: 0;
+          transition: all 0.3s 0.1s $ease-out-quad;
+        }
+        &.line-2,
+        &.line-2_bis {
+          top: calc(50% - 1px);
+          transition: all 0.3s $ease-out-quad;
+        }
+        &.line-3{
+          bottom: 0;
+          transition: all 0.3s 0.1s $ease-out-quad;
+        }
+      }
+
+      .is-menu-open & {
+        .line-1,
+        .line-3 {
+          opacity: 0;
+          transform: scale(0.8);
+
+          transition: all 0.3s $ease-out-quad;
+        }
+        .line-2 {
+          transform: rotate(-45deg);
+          transition: all 0.3s 0.1s $ease-out-quad;
+        }
+        .line-2_bis {
+          transform: rotate(45deg);
+          transition: all 0.3s 0.1s $ease-out-quad;
+        }
+      }
+    }
+
+    .site-lang {
+      position: relative;
+      max-width: 100px;
+      margin: -45px auto 0;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+
+      &-background {
+        @include position(fixed, 0);
+        @include size(100%);
+        display: none;
+        z-index: 0;
+
+        .is-langs-open & {
+          display: block;
+        }
+      }
+
+      .langs { z-index: 1; }
+
+      button {
+        display: none;
+        width: 100%;
+      }
+    }
+  }
+}

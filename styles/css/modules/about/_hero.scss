@@ -1,0 +1,107 @@
+.about-hero {
+  @include size(100%, 950px);
+  position: relative;
+  margin-bottom: -180px;
+
+  &:before {
+    @include size(100%);
+    @include position(absolute, 0);
+    background-image: url('../assets/images/about/header.jpg');
+    background-size: auto 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    content: '';
+    z-index: -1;
+  }
+
+  @include mq($until: tablet) {
+    height: 500px;
+    margin-bottom: 0;
+  }
+
+  .center {
+    @include padding(250px null null);
+    text-align: center;
+    position: relative;
+
+    @include mq($until: tablet) {
+      padding-top: 140px;
+    }
+  }
+
+  h1 {
+    @include font(fontin,bold);
+    font-size: rem(65px);
+    line-height: 1;
+    letter-spacing: rem(-3px);
+
+    em {
+      @include font(playfair,regular-italic);
+      font-size: rem(60px);
+      color: color(brand-gold);
+      display: block;
+      letter-spacing: normal;
+    }
+
+    @include mq($until: tablet) {
+      font-size: rem(35px);
+
+      em {
+        margin-top: 5px;
+        font-size: rem(35px);
+      }
+    }
+  }
+
+  img {
+    @include size(400px, auto);
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 20px;
+
+    @include mq($until: tablet) {
+      @include size(150px, auto);
+      @include margin(40px null null 8px);
+    }
+  }
+
+  .svg {
+    @include position(absolute, calc(100% - 60px) null null calc(50% - 8.5px));
+    display: block;
+
+    svg {
+      display: block;
+      fill: color(brand-gold);
+    }
+
+    @include mq($until: tablet) {
+      top: calc(100% - 10px);
+    }
+  }
+
+  // Animations
+  @include mq($from: desktop) {
+    &:before {
+      opacity: 0;
+      transition: opacity 1s $ease-out-quart;
+    }
+
+    h1,
+    img,
+    .svg {
+      opacity: 0;
+      transition: opacity 1.2s $ease-out-quart;
+    }
+
+    h1 { transition-delay: 0.3s; }
+    img { transition-delay: 0.45s; }
+    .svg { transition-delay: 0.6s; }
+
+    &.is-visible {
+      &:before,
+      h1,
+      img,
+      .svg { opacity: 1; }
+    }
+  }
+}

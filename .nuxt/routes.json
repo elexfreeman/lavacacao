@@ -1,5 +1,12 @@
 [
   {
+    "name": "index_1",
+    "path": "/index_1",
+    "component": "/home/john/projects/lavacacao/pages/index_1.vue",
+    "chunkName": "pages/index_1",
+    "_name": "_3ec95c0d"
+  },
+  {
     "name": "product-id",
     "path": "/product/:id?",
     "component": "/home/john/projects/lavacacao/pages/product/_id.vue",

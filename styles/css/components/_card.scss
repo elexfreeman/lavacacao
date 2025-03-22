@@ -1,0 +1,156 @@
+.card {
+  @include size(calc(33.33% - 27px), auto);
+  @include padding(7px);
+  box-shadow: ps-shadow(30deg,6px,2%,18px,rgba(#746b52,0.3));
+  margin-bottom: 40px;
+  background: color(white);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  // card to align the last row on the left
+  &.card_null{
+    height: 0;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+
+  @include mq($from: tablet) {
+    display: flex;
+  }
+
+  @include mq($from : desktop, $until: site-container) {
+    width: calc(33.33% - 20px);
+    margin-bottom: 30px;
+  }
+
+  @include mq($until: desktop) {
+    width: calc(50% - 15px);
+    margin-bottom: 30px;
+  }
+
+  @include mq($until: tablet) {
+    @include size(100%, auto);
+    max-width: 375px;
+    margin: 0 auto 30px;
+  }
+
+  &:before{
+    @include size(calc(100% - 14px));
+    @include position(absolute, 7px 7px null null);
+    content: '';
+    display: block;
+    background: color(brand-gold);
+    // transform: translate(7px,7px);
+    transition: transform 0.3s $ease-out-quad;
+  }
+
+  &-inner{
+    @include padding(null 50px 50px);
+    width: 100%;
+    border: 1px solid color(brand-gold);
+    position: relative;
+    background: color(white);
+
+    *:not(i){
+      transition: all 0.3s $ease-out-quad;
+    }
+
+    @include mq($from : desktop, $until: site-container) {
+      @include padding(null 30px);
+    }
+
+    @include mq($until: desktop) {
+      @include padding(null 40px);
+    }
+  }
+
+  &-img {
+
+    &.extra-small {
+      @include size(calc(100% + 20px), 200px);
+      @include margin(40px null 80px -10px);
+    }
+
+    &.small {
+      @include size(calc(100% + 40px), 220px);
+      @include margin(30px null 70px -20px);
+    }
+
+    // Medium + default
+      @include size(calc(100% + 60px), 240px);
+      @include margin(20px null 60px -30px);
+    //
+
+    &.large {
+      @include size(calc(100% + 80px), 260px);
+      @include margin(10px null 50px -40px);
+    }
+
+    &.extra-large {
+      @include size(calc(100% + 100px), 280px);
+      @include margin(0 null 40px -50px);
+    }
+
+    img {
+      @include object-fit(contain);
+      @include size(100%);
+      display: block;
+    }
+
+    @include mq($from : desktop, $until: site-container) {
+      // @include size(calc(100% + 60px),230px);
+      // margin-left: -30px;
+    }
+
+    @include mq($until: desktop) {
+      // @include size(calc(100% + 80px),250px);
+      // margin-left: -40px;
+    }
+  }
+
+  &-type{
+    @include font(fontin,bold);
+    text-transform: uppercase;
+    font-size: rem(9px);
+    letter-spacing: 3px;
+    line-height: 1;
+    color : rgba(color(black),0.5);
+
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &-name{
+    @include font(fontin,bold);
+    font-size: rem(30px);
+    margin-bottom: 10px;
+  }
+
+  &-desc{
+    display: block;
+    @include font(fontin,regular);
+    font-size: rem(14px);
+    line-height: 1.4;
+    color : rgba(color(black),0.5);
+  }
+
+  &-link{
+    @include size(100%);
+    @include position(absolute,0);
+    outline: none;
+  }
+
+  &:hover{
+    &:before{
+      // @include size(100%);
+      transform: scale(1.05);
+    }
+
+    *:not(i){
+      color: color(brand-gold);
+    }
+  }
+}

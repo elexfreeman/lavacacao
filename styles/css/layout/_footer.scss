@@ -1,0 +1,171 @@
+.site-footer{
+  @include padding(100px null 50px);
+  background-image: url('../assets/images/background-marble.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  @include mq($until: tablet) {
+    @include padding(80px null 50px);
+  }
+
+  & > .center {
+    position: relative;
+    z-index: 50;
+
+    @include mq($until: tablet) {
+      z-index: 0;
+    }
+  }
+
+  .crown{
+    text-align: center;
+    margin-bottom: 70px;
+
+    .logo{
+      @include size(94px,110px);
+      margin: 0 auto 20px;
+
+      img{
+        @include size(100%,auto);
+        display: block;
+      }
+    }
+
+    .text{
+      @include font(playfair,bold);
+      font-size: rem(9px);
+      color: color(brand-gold);
+      text-transform: uppercase;
+      letter-spacing: 5px;
+    }
+
+    @include mq($until: tablet) {
+      margin-bottom: 50px;
+    }
+  }
+
+  .social{
+    text-align: center;
+    font-size: 0;
+
+    &-item{
+      @include size(40px);
+      display: inline-block;
+      border: 1px solid color(brand-grey);
+      border-radius: 20px;
+      overflow: hidden;
+
+      transition: all .3s $ease-out-quad;
+
+      &:not(:first-child){
+        margin-left: 20px;
+      }
+
+      &:hover{
+        border-color: color(brand-gold);
+      }
+
+      .svg{
+        fill: color(brand-gold);
+      }
+    }
+
+    &-link{
+      @include size(40px);
+      display: block;
+      // background: color(brand-gold);
+
+      // mask-repeat: no-repeat;
+      // mask-position: 50% 50%;
+    }
+  }
+
+  .footer-nav{
+    padding-top: 20px;
+    margin-top: 50px;
+    // border-top: 4px double color(brand-gold);
+    position: relative;
+
+    &:before {
+      @include position(absolute, null null 100% 0);
+      @include size(100%, 4px);
+      border-top: 1px solid color(brand-gold);
+      border-bottom: 1px solid color(brand-gold);
+      content:'';
+    }
+
+    @include mq($from: desktop, $until: site-container) {
+     @include margin(null 30px);
+    }
+
+    ul{
+      @include clearfix();
+    }
+
+    &-item{
+      @include mq($from: tablet) {
+        float: left;
+        margin-right: 20px;
+      }
+      @include mq($until: tablet) {
+        text-align: center;
+      }
+    }
+
+    &-link{
+      display: block;
+
+      @include font(playfair,bold);
+      font-size: rem(9px);
+      color: color(black);
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 2px;
+
+      transition: all 0.3s $ease-out-quad;
+
+      span{
+        transition: all 0.3s $ease-out-quad;
+      }
+
+      &:hover{
+        color: color(brand-gold);
+
+        span{ fill: color(brand-gold); }
+      }
+    }
+
+    &_logo {
+      @include mq($from: tablet) {
+        float: right;
+
+        img {
+          display: block;
+        }
+      }
+
+      @include mq($until: tablet) {
+        margin-bottom: 10px;
+      }
+
+      img {
+        max-height: 27px;
+      }
+    }
+
+    &_dogstudio{
+      @include mq($from: tablet) {
+        float: right;
+        margin-right: 0;
+
+        a {
+          padding-top: 2px;
+        }
+      }
+
+      @include mq($until: tablet) {
+        @include margin(50px null 10px null);
+      }
+    }
+  }
+}

@@ -1,0 +1,224 @@
+$menu-break-point: 1025px;
+
+.site-navigation{
+
+  @include mq($from: $menu-break-point) {
+    text-align: center;
+    position: relative;
+  }
+
+  @include mq($until: $menu-break-point) {
+    top: 50%;
+    position: relative;
+    margin-top: -80px;
+    transform: translateY(-50%);
+  }
+
+  .line{
+    @include position(absolute,50% null null);
+    height: 1px;
+    background: color(brand-gold);
+
+    @include mq($until: $menu-break-point) {
+      display: none;
+    }
+
+    .svg{
+      display: block;
+
+      svg{
+        display: block;
+        fill: color(brand-gold);
+      }
+    }
+
+    $widthFR : 900px;
+    $widthNL : 825px;
+    $widthEN : 740px;
+
+    &.line_left{
+      width: calc(calc(calc(100% - #{$widthEN}) / 2) - 24px);
+      left: 12px;
+
+      html[lang="fr"] & {
+        width: calc(calc(calc(100% - #{$widthFR}) / 2) - 24px);
+      }
+
+      html[lang="nl"] & {
+        width: calc(calc(calc(100% - #{$widthNL}) / 2) - 24px);
+      }
+
+      html[lang="en"] & {
+        width: calc(calc(calc(100% - #{$widthEN}) / 2) - 24px);
+      }
+
+      .span-simple-square{
+        @include position(absolute,-5px calc(100% - 2px) null null);
+      }
+
+      .span-double-square{
+        @include position(absolute,-8px null null calc(100% - 2px));
+      }
+    }
+
+    &.line_right{
+      width: calc(calc(calc(100% - #{$widthEN}) / 2) - 96px);
+      right: 12px;
+
+      html[lang="fr"] & {
+        width: calc(calc(calc(100% - #{$widthFR}) / 2) - 96px);
+      }
+
+      html[lang="nl"] & {
+        width: calc(calc(calc(100% - #{$widthNL}) / 2) - 96px);
+      }
+
+      html[lang="en"] & {
+        width: calc(calc(calc(100% - #{$widthEN}) / 2) - 96px);
+      }
+
+      .span-double-square{
+        @include position(absolute,-8px calc(100% - 2px) null null);
+        transform: rotate(180deg);
+      }
+
+      .span-simple-square{
+        @include position(absolute,-5px null null calc(100% - 2px));
+      }
+    }
+  }
+
+  ul{
+    @include clearfix();
+    font-size: 0;
+    text-align: center;
+
+    @include mq($from: $menu-break-point) {
+      display: inline-block;
+      margin-right: -70px;
+    }
+  }
+
+  .nav-item{
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+
+    @include mq($until: $menu-break-point) {
+      display: block;
+
+      &:not(:first-child){
+        margin-top: 10px;
+      }
+    }
+
+    @include mq($from: $menu-break-point) {
+      &:first-child,
+      &:last-child{
+        &:before{
+          @include size(4px);
+          @include position(absolute, calc(50% - 2px) null null);
+          content: '';
+          background: color(brand-gold);
+          border-radius: 2px;
+        }
+      }
+      &:first-child{
+        &:before{ right: -2px; }
+      }
+      &:last-child{
+        &:before{ left: -2px; }
+      }
+    }
+
+    &.nav-item_logo{
+      a{
+        position: relative;
+        @include size(145px,103px);
+        @include margin(null 30px);
+        // background: color(brand-gold);
+
+        // mask: url('../assets/images/logo-mary.svg');
+        // mask-size: 100% 100%;
+
+        .logo-img {
+          height: 100%;
+          width: auto;
+
+          display: none;
+        }
+
+        .gold-clip {
+          // -webkit-clip-path: url(#logo);
+          // clip-path: url(#logo);
+        }
+
+        .no-svgclippaths & {
+          .logo-img { display: block; }
+          svg { display: none; }
+        }
+
+        @include mq($until: $menu-break-point) {
+          display: none;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .nav-link{
+    @include margin(null 20px);
+    @include font(fontin,bold);
+    display: block;
+    position: relative;
+
+    font-size: rem(18px);
+    color: color(black);
+    text-decoration: none;
+
+    @include mq($until: $menu-break-point) {
+      display: inline-block;
+    }
+  }
+
+  .nav-item:not(.nav-item_logo){
+
+    .nav-link{
+      &:before,
+      &:after{
+        @include position(absolute, 100% null null);
+        content: '';
+        display: block;
+        background-color: color(brand-gold);
+
+        transition: all .3s $ease-out-quad;
+      }
+
+      &:before{
+        @include size(50%, 2px);
+        left: 50%;
+
+        transform: translate(-100%) scaleX(0);
+        transform-origin: 100% 50%;
+      }
+
+      &:after{
+        @include size(calc(50% + 1px), 2px);
+        left: calc(50% - 1px);
+
+        transform: scaleX(0);
+        transform-origin: 0% 50%;
+      }
+
+      &:hover{
+        &:before{ transform: translate(-100%) scaleX(1); }
+        &:after{ transform: scaleX(1); }
+      }
+    }
+
+    .is-active{
+      border-bottom: 2px solid color(brand-gold);
+    }
+  }
+
+}

@@ -1,0 +1,82 @@
+.jobs-list{
+  @include padding(80px null);
+  position: relative;
+  z-index: 1;
+
+  @include mq($until: tablet) {
+    @include padding(40px null);
+  }
+
+  &-item{
+    @include clearfix();
+    @include padding(70px null 90px);
+    border-bottom: 1px solid color(brand-gold);
+
+    @include mq($until: tablet) {
+      @include padding(50px null 60px);
+    }
+
+    &-header{
+      width: 300px;
+      float: left;
+    }
+
+    &-title{
+      font-size: rem(40px);
+      margin-bottom: 15px;
+
+    }
+    &-location{
+      @include font(playfair, regular-italic);
+      @include border-dotted(0,100%);
+      display: block;
+      padding-bottom: 35px;
+      margin-bottom: 15px;
+
+      font-size: rem(40px);
+      color: color(brand-dark-gold);
+    }
+    &-link{
+      @include font(playfair,bold);
+      color: color(brand-dark-gold);
+      text-transform: uppercase;
+      font-size: rem(10px);
+      letter-spacing: 2px;
+      transition: all 0.4s $ease-out-quad;
+
+      span{
+        display: inline-block;
+        vertical-align: middle;
+
+        svg{
+          display: block;
+          fill: color(brand-gold);
+        }
+      }
+
+      &:hover{
+        color: color(black);
+
+        svg{
+          fill: color(black);
+        }
+      }
+    }
+
+    &-content{
+      width: 100%;
+      float: right;
+      max-width: 760px;
+
+
+      @include mq($from: tablet) {
+        columns: 2;
+        column-gap: 40px;
+      }
+    }
+
+
+  }
+
+
+}

@@ -1,0 +1,237 @@
+/// Default typography settings, to be included as soon as possible in the HTML
+/// 1. Make type rendering look crisper
+/// 2. The default font size is 16px
+/// 3. Prevent iOS and IE text size adjust after device orientation change,
+///    without disabling user zoom.
+///
+/// @requires {variable} $base-font-size
+html {
+  @include font-smoothing; /* 1 */
+  font-size: strip-units($base-font-size) / 16 * 100%; /* 2 */
+  -ms-text-size-adjust: 100%; /* 3 */
+  -webkit-text-size-adjust: 100%; /* 3 */
+}
+
+body {
+  @include font(fontin, regular);
+  font-size: rem(ms(0));
+  line-height: 2rem;
+  color: tint(color(black), 30%);
+  font-variant-ligatures: none;
+}
+
+/// Links
+a {
+  cursor: pointer;
+
+  &:hover,
+  &:focus,
+  &:active {
+
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include font(fontin, bold, family weight);
+  color: color(heading);
+}
+
+.typeset {
+  .center{
+    max-width: 960px;
+  }
+
+  .center-narrow{
+    max-width: 550px;
+    padding: 0;
+  }
+
+  /// link
+  a {
+    @include font(fontin, regular);
+    color: color(brand-text);
+    transition: color 0.4s $ease-out-quart;
+
+    &:hover {
+      color: color(brand-gold);
+    }
+  }
+
+  /// Paragraphs
+  /// 1. OpenType ligatures and oldstyle figures enabled if available.
+  p {
+    @include font(fontin, regular);
+    color: color(brand-text);
+    font-size: rem(15px);
+    line-height: 2;
+
+    &.hat{
+      @include font(playfair,regular);
+      color: color(black);
+      font-size: rem(20px);
+      line-height: 1.75;
+    }
+  }
+  p + * {
+    margin-top: 25px;
+  }
+
+  img{
+    display: block;
+    max-width: 100%;
+    margin: 50px auto;
+
+    &.img-left{
+      float: left;
+      width: calc(50% + 60px);
+      height: auto !important;
+      margin-left: -61px;
+    }
+
+    &.img-right{
+      float: right;
+      width: calc(50% + 60px);
+      height: auto !important;
+      margin-right: -61px;
+    }
+  }
+
+  /// Headings
+  /// 1. OpenType ligatures, discretionary ligatures and lining figures enabled if available.
+  h1 {
+    @include font(fontin,bold);
+    font-size: rem(55px);
+    line-height: 1.08;
+    text-align: center;
+
+    max-width: 550px;
+    margin: 0 auto 30px;
+
+    @include mq($until: tablet) {
+      font-size: rem(35px);
+    }
+  }
+
+  h2 {
+   @include font(fontin,bold);
+    font-size: rem(45px);
+
+    + * {
+      margin-top: 45px;
+    }
+  }
+
+  h3 {
+    @include font(fontin,bold);
+    font-size: rem(35px);
+    margin-top: 20px;
+
+    + * {
+      margin-top: 25px;
+    }
+  }
+
+  h4 {
+    @include font(fontin,bold);
+    font-size: rem(30px);
+
+    + * {
+      margin-top: 25px;
+    }
+  }
+
+  h5 {
+    @include baseline(fontin, bold, ms(1), 2, 0);
+  }
+
+  h6 {
+    @include baseline(fontin, bold, ms(0), 2, 0);
+  }
+
+  /// Bold
+  b,
+  strong {
+    @include font(fontin, bold, weight);
+  }
+
+  /// Italic
+  i,
+  em {
+    @include font(fontin, regular-italic, style);
+  }
+
+  /// Lists
+  ul,
+  ol {
+    @include padding(null null null 30px);
+    @include baseline(fontin, regular, $base-font-size, 2, 2);
+
+    li {
+
+    }
+  }
+
+  ul {
+    li {
+      list-style: disc;
+    }
+  }
+
+  ol {
+    li {
+      list-style: decimal;
+    }
+  }
+
+  /// Quotes
+  blockquote {
+    p {
+      @include font(playfair, regular-italic);
+
+      + cite {
+
+      }
+    }
+
+    cite {
+      @include font(fontin, bold, family weight);
+      @include baseline(fontin, bold, ms(-2), 3, 3);
+      display: block;
+      text-transform: uppercase;
+    }
+  }
+}
+
+/// Horizontal rule
+hr {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, color(grey) 50%);
+  background-position: 0 50%;
+  background-repeat: repeat-x;
+  background-size: 100% 0.15rem;
+  border: 0;
+  margin: 0;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
+/// Table
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tr {
+  td,
+  th {
+
+  }
+
+  th {
+
+  }
+}

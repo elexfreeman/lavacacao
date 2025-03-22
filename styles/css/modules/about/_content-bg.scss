@@ -1,0 +1,160 @@
+.about-content-bg{
+  @include padding(120px null 150px);
+  position: relative;
+
+  @include mq($until: tablet) {
+    @include margin(20px null null);
+    padding-bottom: 200px;
+
+    .center{
+      @include margin(null 20px);
+      background: tint(color(brand-gold),90%);
+
+      @include mq($until: tablet) {
+        padding: 0;
+      }
+    }
+  }
+
+  &-background{
+    @include size(100%);
+    @include position(absolute, 0);
+    display: block;
+
+    img{
+      @include size(100%);
+      display: block;
+      object-fit: cover;
+    }
+
+    @include mq($until: tablet) {
+      position: relative;
+      height: 150px;
+    }
+  }
+
+  .svg{
+    @include position(absolute, null null 0 50%);
+    transform: translateX(-50%);
+    display: block;
+
+    svg{
+      display: block;
+      fill: color(brand-gold);
+    }
+
+    @include mq($from: tablet) {
+      display: none;
+    }
+  }
+
+  .center{
+    position: relative;
+  }
+
+  &-pralines{
+    @include position(absolute,null);
+    display: block;
+
+    &.praline_1{
+      width: 220px;
+      top: -160px;
+      left: 00px;
+    }
+
+    &.praline_2{
+      width: 290px;
+      left: -140px;
+      bottom: -100px;
+    }
+
+    &.praline_3{
+      width: 290px;
+      left: 20px;
+      bottom: -240px;
+    }
+
+    @include mq($from: tablet, $until: desktop) {
+      &.praline_1{ left: 40px;}
+      &.praline_2{
+        bottom: -60px;
+        left: -80px;
+      }
+      &.praline_3{ left: 70px;}
+    }
+
+    @include mq($until: tablet) {
+      &.praline_1{
+        width: 150px;
+        top: auto;
+        bottom: calc(100% + 120px);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &.praline_2{
+        width: 170px;
+        bottom: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &.praline_3{
+        display: none;
+      }
+    }
+  }
+
+  &-content{
+    @include size(calc(64% - 25px),auto);
+    float: right;
+
+    p{
+      padding-right: 25%;
+
+      @include mq($until: desktop) {
+        padding-right: 0;
+      }
+    }
+
+    @include mq($until: tablet) {
+      width: 100%;
+      max-width: 400px;
+      float: none;
+      margin: -30px auto 0;
+      padding: 50px 20px 80px;
+      background: tint(color(brand-gold),90%);
+    }
+  }
+
+  &-tag{
+    @include font(fontin,bold);
+    font-size: rem(9px);
+    text-transform: uppercase;
+    letter-spacing: rem(2px);
+
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  &-title{
+    font-size: rem(45px);
+    line-height: 1;
+
+    em{
+      @include font(playfair,regular-italic);
+      font-size: rem(25px);
+      color: color(brand-gold);
+      display: block;
+      margin-top: 10px;
+    }
+
+    @include mq($until: tablet) {
+      font-size: rem(35px);
+    }
+  }
+
+  p{
+    margin-top: 50px;
+  }
+}

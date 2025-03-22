@@ -1,0 +1,29 @@
+@mixin border-dotted($posX : 0,$posY : 0) {
+  /* Trick to add a border dotted that allow to spread the dots */
+  background-image: linear-gradient(to right, black 16%, rgba(255,255,255,0) 0%);
+  background-position: bottom;
+  background-size: 7px 1px;
+  background-repeat: repeat-x;
+  background-position: $posX $posY;
+}
+
+///
+/// Object-fit with fallback
+///
+@mixin object-fit($fit: fill, $position: null) {
+  .object-fit & {
+    object-fit: $fit;
+    @if $position {
+      object-position: $position;
+    }
+  }
+
+  .no-object-fit & {
+    @if $position {
+      object-position: $position;
+      font-family: 'object-fit: #{$fit}; object-position: #{$position}';
+    } @else {
+      font-family: 'object-fit: #{$fit}';
+    }
+  }
+}

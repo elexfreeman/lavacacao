@@ -1,0 +1,100 @@
+.more{
+  margin-top: 50px;
+
+  .center{
+    // overflow: hidden;
+  }
+
+  &-header{
+    text-align: center;
+    padding-bottom: 60px;
+    position: relative;
+    overflow: hidden;
+
+    .text{
+      position: relative;
+    }
+
+    .line{
+      @include size(500px,1px);
+      @include position(absolute, calc(50% - 5px) null null);
+      display: block;
+      background-color: color(brand-gold);
+
+      @include mq($until: tablet) {
+        display: none;
+      }
+
+      .svg{
+        @include position(absolute, 50% null null);
+        display: block;
+
+        svg{
+          display: block;
+          fill: color(brand-gold);
+        }
+      }
+
+      &.line_left{
+        right: calc(100% + 84px);
+
+        .svg{
+          left: calc(100% - 1px);
+          transform: translateY(-50%);
+        }
+      }
+
+      &.line_right{
+        left: calc(100% + 84px);
+
+        .svg{
+          right: calc(100% - 1px);
+          transform: rotate(180deg) translateY(calc(50% + 0.5px));
+        }
+      }
+    }
+  }
+  &-title{
+    font-size: rem(45px);
+    letter-spacing: rem(-1.5px);
+    padding-top: 10px;
+  }
+
+
+  &-listing{
+    margin-bottom: -50px;
+
+    @include mq($from: desktop) {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+    }
+
+    @include mq($until: desktop) {
+    }
+  }
+
+  .card{
+    width: calc(33.33% - 6.67px);
+    margin-bottom: 0px;
+
+    &-inner{
+      @include padding(null 40px);
+    }
+
+    &-img{
+      width: calc(100% + 80px);
+      margin-left: -40px;
+    }
+
+    @include mq($until: desktop) {
+      width: 100%;
+      max-width: 375px;
+      margin: 0 auto;
+
+      &:not(:last-child){
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

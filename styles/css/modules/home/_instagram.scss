@@ -1,0 +1,60 @@
+.home-instagram {
+  padding: 20px 0 0;
+  margin: 0 0 -50px;
+  position: relative;
+  z-index: 11;
+
+  .center{
+    max-width: 1340px;
+    box-shadow: ps-shadow(90deg, 0, 0, 120px, rgba(#000000,0.30));
+
+    @include mq($until: wide) {
+      padding: 0;
+      margin: 0 30px;
+    }
+  }
+
+  @include mq($until: desktop) {
+    margin: 0;
+    padding-bottom: 50px;
+  }
+}
+
+.home-instagram-picture {
+  position: relative;
+  float: left;
+  width: 25%;
+  height: auto;
+  z-index: 0;
+  overflow: hidden;
+
+  a, img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include mq($until: tablet) {
+    width: 50%;
+  }
+
+  &:hover{
+    .home-instagram-image{
+      transform: translate(-50%, -50%) scale(1.1);
+      transition: all 1.5s $ease-out-expo;
+    }
+  }
+
+  .home-instagram-image {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    transform-origin: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: all 1s $ease-out-quad;
+    @include object-fit(cover);
+  }
+}

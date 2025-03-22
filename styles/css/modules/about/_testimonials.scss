@@ -1,0 +1,99 @@
+.about-testimonials {
+  position: relative;
+  padding: 80px 0 120px;
+
+  .center {
+    position: relative;
+    min-height: 370px;
+  }
+
+  @include mq($until: desktop) {
+    padding: 60px 0;
+
+    .center {
+      min-height: 0;
+    }
+  }
+
+  @include mq($until: tablet) {
+    padding: 40px 0 60px;
+
+    [type=button][layout=default] {
+      padding: 15px 30px;
+    }
+  }
+
+  &-title {
+    @include font(playfair, bold);
+    font-size: rem(200px);
+    line-height: 0.85;
+    letter-spacing: ls(-40);
+    text-align: center;
+    color: white;
+    opacity: 0.2;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1024px;
+    z-index: 0;
+
+    &::before,
+    &::after {
+      content: attr(title);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+    &::before {
+      text-shadow: 0 3px 70px rgba(#746b52, 0.5);
+      z-index: -1;
+    }
+
+    &::after {
+      text-shadow: 0 3px 8px rgba(#746b52, 0.6);
+      z-index: -1;
+    }
+
+    @include mq($from: desktop) {
+      max-width: none;
+      width: 1200px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @include mq($until: desktop) {
+      display: none;
+    }
+  }
+
+  &-content{
+    max-width: 560px;
+    margin: -5px auto 0;
+
+    text-align: center;
+
+    [type="button"]{
+      margin-top: 60px;
+    }
+
+    @include mq($from: desktop) {
+      @include position(absolute,50% null null 50%);
+      transform: translate(-50%,-50%);
+      margin-top: 20px;
+    }
+
+  }
+
+  &-quote {
+    @include font(playfair,regular-italic);
+    width: 100%;
+
+    font-size: rem(35px);
+    line-height: 1.4;
+
+    @include mq($until: tablet) {
+      font-size: rem(25px);
+    }
+  }
+}

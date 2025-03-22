@@ -1,9 +1,6 @@
 <template>
   <div>
-    <MainSlider />
-    <ProductList />
-    <About />
-    <Galery />
+    main
   </div>
 </template>
 
