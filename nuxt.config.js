@@ -14,9 +14,13 @@ export default {
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "manifest", href: "/site.webmanifest" },
+//      {
+//        rel: "stylesheet",
+//        href: "https://fonts.googleapis.com/css2?family=Bad+Script&family=Open+Sans:ital,wght@0,300;0,400;1,300&display=swap",
+//      },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Bad+Script&family=Open+Sans:ital,wght@0,300;0,400;1,300&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap",
       },
     ],
   },

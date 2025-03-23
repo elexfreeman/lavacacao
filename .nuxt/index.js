@@ -84,7 +84,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"lavacacao","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"manifest","href":"\u002Fsite.webmanifest"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Bad+Script&family=Open+Sans:ital,wght@0,300;0,400;1,300&display=swap"}],"style":[],"script":[]},
+    head: {"title":"lavacacao","htmlAttrs":{"lang":"en"},"meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":""},{"name":"format-detection","content":"telephone=no"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"},{"rel":"manifest","href":"\u002Fsite.webmanifest"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss2?family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Cormorant+Infant:ital,wght@0,300..700;1,300..700&family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap"}],"style":[],"script":[]},
 
     store,
     router,

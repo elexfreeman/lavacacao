@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Nuxt />
+    <Header />
+    <LvContainer>
+      <ProductBreadcrumbs />
+      <Nuxt />
+    </LvContainer>
     <Footer />
   </div>
 </template>

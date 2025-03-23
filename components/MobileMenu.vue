@@ -55,11 +55,12 @@ export default {
 </script>
 <style lang="scss">
 .mobile-menu {
-  color: #ffffff;
+  //color: #ffffff;
 
   &__modal {
     position: fixed;
     width: 100vw;
+    height: 100vh;
     top: 0;
     left: 0;
     background: $--color-body;

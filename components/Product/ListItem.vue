@@ -1,8 +1,15 @@
 <template>
   <div class="product-list-item">
-    <div class="product-list-item__img" :style="productMainImg"></div>
-    <div class="product-list-item__title">
-      {{ productName }}
+    <div class="product-list-item__border">
+      <div class="product-list-item__img" :style="productMainImg"></div>
+      <div class="product-list-item__text">
+        <div class="product-list-item__name">
+          {{ productName }}
+        </div>
+        <div class="product-list-item__title">
+          {{ productTitle }}
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -19,6 +26,9 @@ export default {
   },
   computed: {
     productName() {
+      return this.product?.attributes?.simple_name;
+    },
+    productTitle() {
       return this.product?.attributes?.title;
     },
     productMainImg() {
@@ -34,37 +44,56 @@ export default {
 </script>
 <style scoped lang="scss">
 .product-list-item {
-  border: 1px solid $--text-color;
+  box-shadow: -5px 3px 17.64px 0.36px rgba(116, 107, 82, 0.3);
+  padding: 8px;
+  background-color: #ffffff;
 
-  @include display-after(sm) {
+  @include display-after(md) {
+    min-height: 300px;
+  }
+
+  &__border {
+    border: 1px solid #bf9950;
   }
 
   &__img {
-    width: 100%;
-    aspect-ratio: 1 / 1.3;
+    aspect-ratio: 1 / 1;
     background-size: cover;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+  }
+
+  &__name {
+    font-size: 18px;
+    line-height: 16px;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    min-height: 30px;
+
+    @include display-after(md) {
+    }
+    @include display-after(lg) {
+    }
   }
 
   &__title {
     font-size: 12px;
     line-height: 16px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: $--text-color;
     background: #ffffff;
-    height: 60px;
-    padding: 10px;
+
+    min-height: 30px;
 
     @include display-after(md) {
-      font-size: 12px;
-      height: 60px;
+      min-height: 50px;
     }
     @include display-after(lg) {
-      font-size: 24px;
-      line-height: 30px;
-      height: 80px;
     }
   }
 

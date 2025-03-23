@@ -11,10 +11,9 @@ export default {
 </script>
 <style lang="scss">
 .lv-container {
-  width: 100%;
+  padding: 0 20px;
 
   @include display-after(sm) {
-    width: $--screen-sm;
     margin: 0 auto;
   }
 

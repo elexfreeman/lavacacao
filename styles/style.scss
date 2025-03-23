@@ -1,15 +1,18 @@
 //@import url("https://fonts.googleapis.com/css2?family=Bad+Script&family=Open+Sans:ital,wght@0,300;0,400;1,300&display=swap");
 //@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
 // $--font-family-site: 'Marck Script';
-$--font-family-site: "Open Sans";
+//$--font-family-site: "Open Sans";
+$--font-family-site: "Cormorant Infant";
+// $--font-family-title: "Shantell Sans";
+$--font-family-title: "Bellota";
 
 // lavacacao
-$--color-body: #413736;
-$--color-main1-font: #ffffff;
-$--color-main2-font: #ffffff;
+$--color-body: #ffffff;
+$--color-main1-font: rgba(0,0,0,.5);
+$--color-main2-font: rgba(0,0,0,.5);
 
-$--title-color: #ffffff;
-$--link-color: #ffffff;
+$--title-color: #000000;
+$--link-color: rgba(0,0,0,.5);
 $--text-color: #878787;
 $--text-gray: #3c3c3c;
 $--footer-color: #faf9f5;
@@ -39,10 +42,16 @@ body {
   font-size: 12px;
   line-height: 16px;
   color: $--color-main1-font;
+  background: url('~assets/bg_mm_01.jpg');
+  background-repeat: no-repeat;
+  background-size: 200%;
+  background-position: top;
 
   @include display-after(md) {
     font-size: 12px;
+    background-size: 100% auto;
   }
+
   @include display-after(lg) {
     font-size: 24px;
     line-height: 30px;
@@ -53,8 +62,7 @@ a {
   color: $--link-color;
 }
 
-.lemd-container {
-  width: 100%;
+.lv-container {
   margin: 0 auto;
 
   @include display-after(sm) {

@@ -8,6 +8,9 @@
   "AddToCartBtn": {
     "description": "Auto imported from components/AddToCartBtn.vue"
   },
+  "BgImages": {
+    "description": "Auto imported from components/BgImages.vue"
+  },
   "Containter": {
     "description": "Auto imported from components/Containter.vue"
   },

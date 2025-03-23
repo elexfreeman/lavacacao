@@ -1,5 +1,5 @@
 <template>
-  <div class="product-breadcrumbs">
+  <div class="product-breadcrumbs" v-if="skuTitle">
     <NuxtLink to="/">
       <div class="product-breadcrumbs__item">Главная</div>
     </NuxtLink>
@@ -24,9 +24,14 @@ export default {
 
 <style lang="scss" scoped>
 .product-breadcrumbs {
-  display: flex;
+  display: none;
   gap: 5px;
   font-size: 10px;
   margin: 10px 0;
+
+  @include display-after(md) {
+    display: flex;
+  }
+
 }
 </style>

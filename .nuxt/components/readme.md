@@ -9,6 +9,7 @@ You can directly use them in pages and other components without the need to impo
 - `<LvContainer>` | `<lv-container>` (components/common/LvContainer.vue)
 - `<About>` | `<about>` (components/About.vue)
 - `<AddToCartBtn>` | `<add-to-cart-btn>` (components/AddToCartBtn.vue)
+- `<BgImages>` | `<bg-images>` (components/BgImages.vue)
 - `<Containter>` | `<containter>` (components/Containter.vue)
 - `<Footer>` | `<footer>` (components/Footer.vue)
 - `<Galery>` | `<galery>` (components/Galery.vue)

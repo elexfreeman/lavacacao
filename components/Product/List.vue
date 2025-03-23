@@ -1,9 +1,12 @@
 <template>
   <LvContainer>
     <div class="product-list">
-      <h2 class="product-list__title">
-        {{ pageCommonData.productListTitle }}
-      </h2>
+      <div class="product-list__title-wrapper">
+        <div class="product-list__title">
+          {{ pageCommonData.productListTitle }}
+        </div>
+        <div class="product-list__title-2">сейчас</div>
+      </div>
       <div class="product-list__content">
         <NuxtLink
           v-for="(product, key) in productList"
@@ -41,26 +44,55 @@ export default {
   }
 
   &__content {
-    margin-top: 40px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-around;
-    grid-row-gap: 15px;
-    grid-column-gap: 15px;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
 
     @include display-after(sm) {
     }
 
     @include display-after(md) {
       grid-template-columns: repeat(4, 1fr);
+      align-items: stretch;
     }
 
     @include display-after(lg) {
     }
   }
 
+  &__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 40px 0;
+  }
+
   &__title {
-    @include title-font();
+    display: block;
+    font-family: $--font-family-title;
+    font-weight: 800;
+    text-align: center;
+    font-size: 42px;
+    line-height: 50px;
+    color: #000000;
+    // -webkit-text-stroke: 1px #00000070;
+    // text-stroke: 1px #00000070;
+    //text-shadow: 2px 2px 2px rgba(116, 107, 82, 1);
+  }
+
+  &__title-2 {
+    display: block;
+    font-family: $--font-family-title;
+    font-weight: 800;
+    text-align: center;
+    font-size: 42px;
+    line-height: 50px;
+    color: #c3a467;
+    // -webkit-text-stroke: 1px #00000070;
+    // text-stroke: 1px #00000070;
+    //text-shadow: 2px 2px 2px rgba(116, 107, 82, 1);
   }
 }
 </style>

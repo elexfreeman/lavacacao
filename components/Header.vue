@@ -1,16 +1,8 @@
 <template>
   <div class="header">
     <NuxtLink class="header__item header__logo-link" to="/">
-      <img class="header__logo" :src="logoImg" />
+      <img class="header__logo" src="~assets/logo-lava.png" />
     </NuxtLink>
-
-    <div class="header__item header__menu">
-      <Menu />
-    </div>
-
-    <div class="header__item header__contacts">
-      <HeaderContacts />
-    </div>
 
     <div class="header__item header__mobile-menu">
       <MobileMenu />
@@ -45,16 +37,17 @@ export default {
 </script>
 <style lang="scss" scoped>
 .header {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
 
   @include display-after(md) {
-  }
-
-  @include display-after(sm) {
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 
   &__menu {
@@ -69,11 +62,9 @@ export default {
     width: auto;
 
     @include display-after(md) {
-      width: 200px;
     }
 
     @include display-after(lg) {
-      width: 600px;
     }
   }
 
@@ -81,7 +72,7 @@ export default {
     display: flex;
     justify-content: flex-end;
 
-    @include display-after(lg) {
+    @include display-after(md) {
       display: none;
     }
   }
@@ -107,8 +98,8 @@ export default {
   &__logo {
     width: 89px;
 
-    @include display-after(sm) {
-      width: 89px;
+    @include display-after(md) {
+      width: 200px;
     }
   }
 }
