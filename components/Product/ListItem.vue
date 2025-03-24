@@ -45,7 +45,7 @@ export default {
 <style scoped lang="scss">
 .product-list-item {
   box-shadow: -5px 3px 17.64px 0.36px rgba(116, 107, 82, 0.3);
-  padding: 8px;
+  padding: 5px;
   background-color: #ffffff;
 
   @include display-after(md) {
@@ -70,6 +70,7 @@ export default {
 
   &__name {
     font-size: 18px;
+    font-weight: 600;
     line-height: 16px;
     justify-content: center;
     align-items: center;

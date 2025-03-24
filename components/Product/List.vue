@@ -9,6 +9,7 @@
       </div>
       <div class="product-list__content">
         <NuxtLink
+          class="product-list__item"
           v-for="(product, key) in productList"
           :key="key"
           :to="`/product/${product.id}`"
@@ -44,22 +45,27 @@ export default {
   }
 
   &__content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: space-around;
-    grid-row-gap: 20px;
-    grid-column-gap: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 
     @include display-after(sm) {
     }
 
     @include display-after(md) {
-      grid-template-columns: repeat(4, 1fr);
-      align-items: stretch;
     }
 
     @include display-after(lg) {
     }
+  }
+
+  &__item {
+      flex: 0 0 calc(50% - 20px);
+    @include display-after(md) {
+      flex: 0 0 calc(33.33% - 20px);
+    }
+
   }
 
   &__title-wrapper {
