@@ -1,6 +1,9 @@
 <template>
   <div class="sku">
-    <div class="sku__title">{{ sku.title }}</div>
+    <div class="sku__title-wrapper">
+      <div class="sku__name">{{ product.attributes.simple_name }}</div>
+      <div class="sku__title">{{ sku.title }}</div>
+    </div>
     <div class="sku__wraper">
       <div class="sku__left">
         <div class="sku__slider">
@@ -12,7 +15,7 @@
         <SkuBtnList />
         <ProductCompound :sku="sku" />
         <ProductAddData :sku="sku" />
-        <ProductDescription :text="description" title="Описание" />
+        <ProductDescription v-if="description" :text="description" title="Описание" />
         <div class="sku__add-to-cart-desctop">
           <AddToCartBtn :productId="product.id" :skuId="sku.id" />
         </div>
@@ -46,6 +49,9 @@ export default {
       };
     },
     description() {
+      if(!this.sku.description && ! this.product.attributes.common.description) {
+        return null;
+      }
       return this.sku.description
         ? this.sku.description
         : this.product.attributes.common.description.replaceAll("\n", "<br/>");
@@ -89,11 +95,23 @@ export default {
     }
   }
 
+  &__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 0;
+  }
+
+  &__name {
+    font-size: 35px;
+    line-height: 35px;
+    color: #000000;
+    font-weight: 600;
+  }
+
   &__title {
     font-size: 20px;
     line-height: 26px;
-    text-align: center;
-    margin: 22px 0;
 
     @include display-after(lg) {
       font-size: 32px;
@@ -136,15 +154,14 @@ export default {
   }
 
   &__add-to-cart {
-    widows: 100%;
-    @include display-after(lg) {
+    @include display-after(md) {
       display: none;
     }
   }
 
   &__add-to-cart-desctop {
     display: none;
-    @include display-after(lg) {
+    @include display-after(md) {
       display: block;
     }
   }

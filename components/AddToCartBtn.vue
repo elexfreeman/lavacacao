@@ -1,5 +1,20 @@
 <template>
-  <div class="add-to-cart-btn">Заказать</div>
+  <button type="button" layout="default" class="btn-add-to-card" js-buy-button="">
+    В корзину
+    <span class="border border-one">
+      <span class="line line-horizontal line-top"></span>
+      <span class="line line-horizontal line-bottom"></span>
+      <span class="line line-vertical line-left"></span>
+      <span class="line line-vertical line-right"></span>
+    </span>
+
+    <span class="border border-two">
+      <span class="line line-horizontal line-top"></span>
+      <span class="line line-horizontal line-bottom"></span>
+      <span class="line line-vertical line-left"></span>
+      <span class="line line-vertical line-right"></span>
+    </span>
+  </button>
 </template>
 
 <script>

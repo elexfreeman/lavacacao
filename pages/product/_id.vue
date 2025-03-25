@@ -1,9 +1,5 @@
 <template>
-  <LvContainer>
-    <Header />
-    <ProductBreadcrumbs />
-    <ProductMain />
-  </LvContainer>
+  <ProductMain />
 </template>
 
 <script>

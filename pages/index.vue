@@ -10,8 +10,11 @@ import { API_URL, MEDIA_URL } from "../config";
 export default {
   name: "IndexPage",
   layout: "main",
+  mounted() {
+  },
   async asyncData({ params, $axios, store }) {
-    console.log(`${API_URL}/page-data-common?populate=deep`)
+     store.dispatch("product/setSelectedSkuId", -1);
+    store.dispatch("product/loadProduct", {});
     const pageCommonData = (
       await $axios.$get(`${API_URL}/page-data-common?populate=deep`)
     ).data.attributes;
